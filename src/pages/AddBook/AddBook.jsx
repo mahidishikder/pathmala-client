@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../provider/AuthPorvider";
+import axios from "axios";
 
 function AddBook() {
-  const handleSubmit = (e) => {
+  const {user} = useContext(AuthContext)
+  const handleSubmit = async(e) => {
     e.preventDefault();
     const book_name = e.target.book_name.value
     const author_name = e.target.author_name.value
@@ -16,8 +20,9 @@ function AddBook() {
       position: "top-right",
       autoClose: 1000,
     });
-    
-    const data = { book_name, author_name, category_items, quantity, rating, image_url, short_description, book_content, }
+
+    const dataa = { book_name, author_name, category_items, quantity, rating, image_url, short_description, book_content, buyer : {userName:user?.displayName, userEmail:user?.email,userPhoto:user?.photoURL } }
+    const {data} = await axios.post(`http://localhost:5001/addBook`,dataa)
     console.log(data)
   }
   return (
