@@ -6,10 +6,27 @@ import { toast } from "react-toastify";
 
 function Login() {
   const navigate = useNavigate();
-  const { logininWithEmeilPasseord } = useContext(AuthContext);
+  const { logininWithEmeilPasseord,loginGoogle } = useContext(AuthContext);
+  console.log(loginGoogle)
 
   const [error, setError] = useState(""); // State for error message
+  
 
+  const handleGoogle = () => {
+    loginGoogle()
+    .then(result => {
+      console.log(result.user)
+      toast.success("Google Login Successful", {
+        position: "top-right",
+        autoClose: 1000,
+      });
+      navigate("/");
+
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
+  }
   const handleLogin = (e) => {
     e.preventDefault();
     setError(""); // Clear previous error
@@ -37,6 +54,7 @@ function Login() {
         console.log(error.message);
       });
   };
+
 
   return (
     <div className="flex justify-center items-center my-40 max-w-7xl mx-auto">
@@ -104,7 +122,7 @@ function Login() {
 
         {/* Google Login Button */}
         <div className="flex justify-center">
-          <button className="bg-gray-200 rounded py-2 w-full flex justify-center items-center gap-2">
+          <button onClick={handleGoogle} className="bg-gray-200 rounded py-2 w-full flex justify-center items-center gap-2">
             <FcGoogle className="text-lg" />
             <p className="text-gray-700">Google</p>
           </button>

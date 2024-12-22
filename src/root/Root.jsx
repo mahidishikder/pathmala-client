@@ -5,7 +5,11 @@ import Navber from "../components/Navber/Navber"
 function Root() {
   return (
     <div>
-      <Navber></Navber>
+
+      <div className="">
+        <Navber></Navber>
+      </div>
+      
       <Outlet></Outlet>
       <Footer></Footer>
     </div>

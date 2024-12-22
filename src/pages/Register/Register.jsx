@@ -7,7 +7,24 @@ import { toast } from "react-toastify";
 function Register() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { createUser ,updateProfileUser} = useContext(AuthContext);
+  const { createUser ,updateProfileUser,loginGoogle} = useContext(AuthContext);
+
+
+  const handleGoogle = () => {
+    loginGoogle()
+    .then(result => {
+      console.log(result.user)
+      toast.success("Google Login Successful", {
+        position: "top-right",
+        autoClose: 1000,
+      });
+      navigate("/");
+
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
+  }
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -148,7 +165,7 @@ function Register() {
         </div>
 
         <div className="flex justify-center">
-          <button className="bg-gray-200 rounded py-2 w-full flex justify-center items-center gap-2">
+          <button onClick={handleGoogle} className="bg-gray-200 rounded py-2 w-full flex justify-center items-center gap-2">
             <FcGoogle className="text-lg" />
             <p className="text-gray-700">Google</p>
           </button>

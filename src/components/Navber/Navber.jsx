@@ -71,7 +71,8 @@ function Navber() {
   );
 
   return (
-    <div className="navbar bg-base-100 max-w-7xl mx-auto">
+    <div className="bg-gray-100">
+      <div className="navbar max-w-7xl mx-auto  py-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="text-2xl sm:text-3xl lg:hidden">
@@ -115,6 +116,7 @@ function Navber() {
           </Link>
         )}
       </div>
+    </div>
     </div>
   );
 }
