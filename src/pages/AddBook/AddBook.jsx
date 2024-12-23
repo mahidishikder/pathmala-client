@@ -54,9 +54,9 @@ function AddBook() {
             <select name="category_items" className=" w-full ring-2 ring-blue-300 py-4 rounded bg-gray-100">
               <option disabled selected>Category</option>
               <option>Fiction</option>
-              <option>Non-Fiction</option>
-              <option>Science</option>
-              <option>Arts</option>
+              <option>Self-Help & Motivation</option>
+              <option>Science & Technology</option>
+              <option>History</option>
             </select>
           </div>
 
