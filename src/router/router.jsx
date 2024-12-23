@@ -8,6 +8,7 @@ import AddBook from "../pages/AddBook/AddBook";
 import BorrowedBooks from "../pages/BorrowedBooks/BorrowedBooks";
 import Error from "../pages/Error/Error";
 import PrivateRoute from "./privateRoute";
+import UpdateForm from "../pages/Books/UpadateForm/UpdateForm";
 
 
 
@@ -23,7 +24,13 @@ const router = createBrowserRouter([
       },
       {
        path:'/books',
-       element:<PrivateRoute><Books></Books></PrivateRoute>
+       element:<PrivateRoute><Books></Books></PrivateRoute>,
+       loader:() => fetch(`http://localhost:5001/books`)
+      },
+      {
+        path:'/book/:id',
+        element:<PrivateRoute><UpdateForm></UpdateForm></PrivateRoute>,
+        loader:({params}) => fetch(`http://localhost:5001/book/${params.id}`)
       },
       {
         path:'/addBook',

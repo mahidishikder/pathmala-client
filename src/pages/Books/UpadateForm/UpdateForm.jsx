@@ -1,65 +1,64 @@
-import { useContext } from "react";
-import { toast } from "react-toastify";
-import { AuthContext } from "../../provider/AuthPorvider";
-import axios from "axios";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
-function AddBook() {
-  const { user } = useContext(AuthContext);
+function UpdateForm() {
+  const data = useLoaderData();
+  const {
+    _id,
+    book_name,
+    author_name,
+    category_items,
+    quantity,
+    rating,
+    image_url,
+    short_description,
+    book_content,
+  } = data;
 
-  const handleSubmit = async (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
 
-    const book_name = e.target.book_name.value;
-    const author_name = e.target.author_name.value;
-    const category_items = e.target.category_items.value;
-    const quantity = e.target.quantity.value;
-    const rating = e.target.rating.value;
-    const image_url = e.target.image_url.value;
-    const short_description = e.target.short_description.value;
-    const book_content = e.target.book_content.value;
-
-    const dataa = {
-      book_name,
-      author_name,
-      category_items,
-      quantity,
-      rating,
-      image_url,
-      short_description,
-      book_content,
-      buyer: {
-        userName: user?.displayName,
-        userEmail: user?.email,
-        userPhoto: user?.photoURL,
-      },
+    // Collect updated data
+    const updatedData = {
+      book_name: e.target.book_name.value,
+      author_name: e.target.author_name.value,
+      category_items: e.target.category_items.value,
+      quantity: e.target.quantity.value,
+      rating: e.target.rating.value,
+      image_url: e.target.image_url.value,
+      short_description: e.target.short_description.value,
+      book_content: e.target.book_content.value,
     };
+    console.log(updatedData)
 
-    try {
-      const { data } = await axios.post(`http://localhost:5001/addBook`, dataa);
-      console.log(data);
+    // Make the PUT request
+    fetch(`http://localhost:5001/book/${_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    })
 
-      // সফল বার্তা প্রদর্শন
-      toast.success("Book Add Successful", {
-        position: "top-right",
-        autoClose: 1000,
-      });
-
-      // ফর্ম রিসেট করা
-      e.target.reset();
-    } catch (error) {
-      console.error("Error adding book:", error);
-      toast.error("Failed to add book. Please try again.", {
-        position: "top-right",
-        autoClose: 1000,
-      });
-    }
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      if(data.modifiedCount){
+        Swal.fire({
+          title: "Update!",
+          text: "Your data has been update successfull.",
+          icon: "success"
+        });
+      }
+    })
+      
   };
 
   return (
     <div className="py-24">
-      <div className="max-w-7xl mx-auto px-20 py-16 bg-gray-100 rounded-xl ">
-        <h2 className="text-3xl font-bold text-center mb-8">Add Book</h2>
-        <form onSubmit={handleSubmit}>
+      <div className="max-w-7xl mx-auto px-20 py-16 bg-gray-100 rounded-xl">
+        <h2 className="text-3xl font-bold text-center mb-8">Update The Book</h2>
+        <form onSubmit={handleUpdate}>
           <div className="my-4">
             <label className="font-medium">Book Name</label>
             <input
@@ -67,6 +66,7 @@ function AddBook() {
               type="text"
               required
               name="book_name"
+              defaultValue={book_name}
             />
           </div>
 
@@ -77,21 +77,21 @@ function AddBook() {
               type="text"
               required
               name="author_name"
+              defaultValue={author_name}
             />
           </div>
 
           <div className="my-10 font-medium">
+            <label className="font-medium">Category</label>
             <select
               name="category_items"
               className="w-full ring-2 ring-blue-300 py-4 rounded bg-gray-100"
+              defaultValue={category_items}
             >
-              <option disabled selected>
-                Category
-              </option>
-              <option>Fiction</option>
-              <option>Science & Technology</option>
-              <option>History</option>
-              <option>Self-Help & Motivation</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Science & Technology">Science & Technology</option>
+              <option value="History">History</option>
+              <option value="Self-Help & Motivation">Self-Help & Motivation</option>
             </select>
           </div>
 
@@ -102,8 +102,10 @@ function AddBook() {
               type="number"
               name="quantity"
               required
+              defaultValue={quantity}
             />
           </div>
+
           <div className="my-4">
             <label className="font-medium">Rating</label>
             <input
@@ -113,6 +115,7 @@ function AddBook() {
               max="5"
               required
               name="rating"
+              defaultValue={rating}
             />
           </div>
 
@@ -123,6 +126,7 @@ function AddBook() {
               type="url"
               required
               name="image_url"
+              defaultValue={image_url}
             />
           </div>
 
@@ -132,6 +136,7 @@ function AddBook() {
               className="py-3 px-3 mt-3 w-full ring-2 ring-blue-300 bg-gray-100 rounded"
               required
               name="short_description"
+              defaultValue={short_description}
             />
           </div>
 
@@ -141,6 +146,7 @@ function AddBook() {
               className="py-3 px-3 mt-3 w-full ring-2 ring-blue-300 bg-gray-100 rounded"
               required
               name="book_content"
+              defaultValue={book_content}
             />
           </div>
 
@@ -149,7 +155,7 @@ function AddBook() {
               className="bg-[#0075FF] mt-6 py-3 px-10 rounded text-white/80 font-medium"
               type="submit"
             >
-              Add Book
+              Update Book
             </button>
           </div>
         </form>
@@ -158,4 +164,4 @@ function AddBook() {
   );
 }
 
-export default AddBook;
+export default UpdateForm;
