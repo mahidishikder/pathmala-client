@@ -17,10 +17,10 @@ function BookCard({ bookAll }) {
   return (
     <div className="card shadow shadow-slate-300 w-[300px]">
       <figure className="px-10 pt-10">
-        <img
+        <img 
           src={image_url}
           alt={book_name}
-          className="rounded-xl"
+          className="rounded w-[180px]"
         />
       </figure>
       <div className="card-body items-center text-center">

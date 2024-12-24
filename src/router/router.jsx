@@ -9,6 +9,8 @@ import BorrowedBooks from "../pages/BorrowedBooks/BorrowedBooks";
 import Error from "../pages/Error/Error";
 import PrivateRoute from "./privateRoute";
 import UpdateForm from "../pages/Books/UpadateForm/UpdateForm";
+import CategoryCard from "../pages/Home/CategoryCard/CategoryCard";
+import BookDetails from "../pages/Home/BookDetails/BookDetails";
 
 
 
@@ -35,6 +37,15 @@ const router = createBrowserRouter([
       {
         path:'/addBook',
         element:<PrivateRoute><AddBook></AddBook></PrivateRoute>
+      },
+      {
+        path: '/category_books/:categoryName',
+        element: <CategoryCard />,
+      },
+      {
+        path:'/bookDetails/:id',
+        element:<BookDetails></BookDetails>,
+        loader:({params}) => fetch(`http://localhost:5001/book/${params.id}`)
       },
       {
         path:'borrowedBooks',

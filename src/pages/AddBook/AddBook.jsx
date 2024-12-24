@@ -2,8 +2,10 @@ import { useContext } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../provider/AuthPorvider";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddBook() {
+  const navigete = useNavigate()
   const { user } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
@@ -46,6 +48,7 @@ function AddBook() {
 
       // ফর্ম রিসেট করা
       e.target.reset();
+      navigete('/books')
     } catch (error) {
       console.error("Error adding book:", error);
       toast.error("Failed to add book. Please try again.", {
