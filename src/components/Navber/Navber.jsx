@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 function Navber() {
   const navigate = useNavigate()
   const { user, singOutUser } = useContext(AuthContext);
+  const profile = user && user?.photoURL
+ 
 
   const handleLogout = () => {
     singOutUser()
@@ -127,23 +129,28 @@ function Navber() {
 
 
       <div className="navbar-end">
-        {user && user?.email ? (
-         <div className="flex gap-2 items-center">
-           <img  className=" cursor-pointer lg:w-10 lg:h-10 w-9 h-9 rounded-full" src={user?.photoURL} alt="" />
-          <button
-            onClick={handleLogout}
-            className="rounded font-medium text-white/80 md:text-lg py-2 px-3 bg-red-500"
-          >
-            Logout
-          </button>
-         </div>
-        ) : (
-          <Link to={`/login`}>
+          {
+            user?
+            <div className="flex gap-2 items-center">
+            <img  className=" cursor-pointer lg:w-10 lg:h-10 w-9 h-9 rounded-full" src={profile} alt="" />
+           <button
+             onClick={handleLogout}
+             className="rounded font-medium text-white/80 md:text-lg py-2 px-3 bg-red-500"
+           >
+             Logout
+           </button>
+          </div>
+            : 
+            <Link to={`/login`}>
             <a className="hover:ring-[#0075FF] text-white hover:bg-white bg-[#0075FF] hover:ring-1 py-2 px-4 rounded font-medium cursor-pointer hover:text-[#0075FF] duration-300">
               Login
             </a>
           </Link>
-        )}
+          }
+       
+          
+          
+        
       </div>
     </div>
     </div>

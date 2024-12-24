@@ -1,6 +1,6 @@
 function About() {
   return (
-    <div className="p-6 bg-gray-50 max-w-7xl mx-auto py-24">
+    <div className="p-6 bg-gray-50 max-w-7xl mx-auto py-16 rounded-xl my-24">
       {/* Section Title */}
       <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-12">
         About Our Library Management System
@@ -15,7 +15,7 @@ function About() {
           to enhance book management, reading experiences, and much more.
         </p>
         <div className="mt-8 ">
-        <iframe className="mx-auto rounded-md" width="560" height="315" src="https://www.youtube.com/embed/MB9SgSYw0Gw?si=nYSIL28be5egxzOB" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  allowfullscreen></iframe>
+        <iframe className="mx-auto rounded-md" width="560" height="315" src="https://www.youtube.com/embed/1gzXwNt3lWA?si=XoNufTZN2kOcWTZl" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  allowfullscreen></iframe>
         </div>
       </div>
 

@@ -42,11 +42,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/category_books/:categoryName',
-        element: <CategoryCard />,
+        element: <PrivateRoute><CategoryCard /></PrivateRoute>,
       },
       {
         path:'/bookDetails/:id',
-        element:<BookDetails></BookDetails>,
+        element:<PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
         loader:({params}) => fetch(`http://localhost:5001/book/${params.id}`)
       },
       {

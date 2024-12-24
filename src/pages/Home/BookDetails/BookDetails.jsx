@@ -37,6 +37,9 @@ function BookDetails() {
         returnDate,
         name,
         email,
+        image_url,
+        category_items,
+        book_name
       }),
     })
       .then((res) => res.json())
