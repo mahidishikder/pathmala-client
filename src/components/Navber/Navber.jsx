@@ -31,6 +31,8 @@ function Navber() {
       >
         Home
       </NavLink>
+
+      
       {
         user && 
         <>
@@ -64,8 +66,31 @@ function Navber() {
       >
         Borrowed Books
       </NavLink>
+
+     
         </>
       }
+       <NavLink
+        to={`about`}
+        className={({ isActive }) =>
+          isActive
+            ? "mx-2 py-2 font-medium underline underline-offset-8 rounded text-lg text-[#0075FF]"
+            : "mx-2 py-2 font-medium hover:underline-offset-8 rounded text-lg"
+        }
+      >
+        About Us
+      </NavLink>
+
+      <NavLink
+        to={`contact`}
+        className={({ isActive }) =>
+          isActive
+            ? "mx-2 py-2 font-medium underline underline-offset-8 rounded text-lg text-[#0075FF]"
+            : "mx-2 py-2 font-medium hover:underline-offset-8 rounded text-lg"
+        }
+      >
+        Contact Us
+      </NavLink>
 
     </div>
   );
@@ -88,7 +113,7 @@ function Navber() {
         <div className="flex items-center cursor-pointer">
           <img
             className="w-10"
-            src="https://img.icons8.com/?size=80&id=IKHKcMvxrS5E&format=png"
+            src="https://img.icons8.com/?size=80&id=OYbXGW7sJiOG&format=png"
             alt=""
           />
           <a className="text-2xl font-bold">PATHMALA</a>
