@@ -1,10 +1,44 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../provider/AuthPorvider';
+import Swal from 'sweetalert2';
 
 function BorrowedBooks() {
+  const handleReturn = (_id) => {
+    fetch(`http://localhost:5001/borrows/${_id}`, {
+        method: "DELETE",
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.deleteResult.deletedCount > 0) {
+                Swal.fire({
+                    title: "Return Successful!",
+                    text: "Your book has been returned, and stock updated.",
+                    icon: "success",
+                });
+
+                // UI থেকে ডেটা রিফ্রেশ করা
+                setBorrowedBooks((prevBooks) =>
+                    prevBooks.filter((book) => book._id !== _id)
+                );
+            } else {
+                Swal.fire({
+                    title: "Return Failed!",
+                    text: "Something went wrong. Please try again.",
+                    icon: "error",
+                });
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error.message);
+        });
+};
+
+
+
   const { user } = useContext(AuthContext);
   const [borrowedBooks, setBorrowedBooks] = useState([]);
+  
 
   useEffect(() => {
     // ডেটা ফেচ করা
@@ -57,7 +91,7 @@ function BorrowedBooks() {
                   </td>
                   <td><p className='text-green-600 '>{books.returnDate}</p></td>
                   <th>
-                    <button className="btn bg-blue-600 text-white/80">Return</button>
+                    <button onClick={() => handleReturn(books._id)} className="btn bg-blue-600 text-white/80">Return</button>
                   </th>
                 </tr>
               ))
