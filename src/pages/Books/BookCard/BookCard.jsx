@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ReactStars from "react-rating-stars-component";
 
 /* eslint-disable react/prop-types */
 function BookCard({ bookAll }) {
@@ -28,17 +29,19 @@ function BookCard({ bookAll }) {
         <p>{author_name}</p>
 
         {/* Dynamic Rating Section */}
-        <div className="flex items-center justify-center mt-2">
-          {[...Array(5)].map((_, i) => (
-            <span
-              key={i}
-              className={`text-xl ${i < Math.floor(rating) ? "text-yellow-500" : "text-gray-300"}`}
-            >
-              ⭐
-            </span>
-            
-          ))}
-        </div>
+        
+
+<div className="flex items-center justify-center mt-2">
+  <ReactStars
+    count={5} // সর্বমোট ৫টি স্টার
+    value={rating} // রেটিং ভ্যালু (dynamic)
+    size={24} // স্টারের সাইজ
+    isHalf={true} // হাফ স্টার সাপোর্ট
+    edit={false} // রেটিং পরিবর্তন করা যাবে না
+    activeColor="#ffd700" // স্টারের রঙ
+  />
+</div>
+
         <p>{category_items}</p>
         <p
   className={`${

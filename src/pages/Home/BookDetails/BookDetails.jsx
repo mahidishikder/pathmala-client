@@ -23,6 +23,7 @@ function BookDetails() {
 
   const navigate = useNavigate();
   const [returnDate, setReturnDate] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentQuantity, setCurrentQuantity] = useState(quantity);
 
@@ -35,6 +36,7 @@ function BookDetails() {
       body: JSON.stringify({
         bookId: data._id,
         returnDate,
+        currentDate,
         name,
         email,
         image_url,
@@ -125,52 +127,72 @@ function BookDetails() {
           <div className="bg-white p-8 rounded shadow-lg w-[90%] max-w-md">
             <h2 className="text-2xl font-semibold mb-4">Borrow This Book</h2>
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleBorrow();
-              }}
-            >
-              <div className="mb-4">
-                <label>Your Name</label>
-                <input
-                  type="text"
-                  defaultValue={user.displayName}
-                  className="w-full mb-6 py-2 ring-2 rounded pl-2"
-                />
+  onSubmit={(e) => {
+    e.preventDefault();
+    handleBorrow();
+  }}
+>
+  <div className="mb-4">
+    <label>Your Name</label>
+    <input
+      type="text"
+      defaultValue={user.displayName}
+      className="w-full mb-6 py-2 ring-2 rounded pl-2"
+    />
 
-                <label className="">Your Email</label>
-                <input
-                  type="email"
-                  defaultValue={user.email}
-                  className="w-full mb-6 py-2 ring-2 rounded pl-2"
-                />
-                <label htmlFor="returnDate" className="block text-gray-700">
-                  Return Date:
-                </label>
-                <input
-                  type="date"
-                  id="returnDate"
-                  className="mt-1 block w-full ring-2 py-2 pl-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
-                  value={returnDate}
-                  onChange={(e) => setReturnDate(e.target.value)}
-                  required
-                />
-              </div>
+    <label>Your Email</label>
+    <input
+      type="email"
+      defaultValue={user.email}
+      className="w-full mb-6 py-2 ring-2 rounded pl-2"
+    />
 
-              <button
-                type="submit"
-                className="w-full py-2 px-4 bg-blue-500 text-white font-bold rounded hover:bg-blue-600"
-              >
-                Confirm Borrow
-              </button>
-              <button
-                type="button"
-                className="w-full py-2 px-4 mt-2 bg-gray-500 text-white font-bold rounded hover:bg-gray-600"
-                onClick={() => setIsModalOpen(false)}
-              >
-                Cancel
-              </button>
-            </form>
+    
+    {/* <p className="text-gray-700 font-semibold mb-2">
+      Current Date: <span className="text-blue-500">{currentDate}</span>
+    </p> */}
+
+
+<label htmlFor="currentDate" className="block text-gray-700">
+      Current Date:
+    </label>
+    <input
+      type="date"
+      id="currentDate"
+      className="mt-1 block w-full ring-2 py-2 pl-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+      value={currentDate}
+      onChange={(e) => setCurrentDate(e.target.value)}
+      required
+    />
+
+    <label htmlFor="returnDate" className="block text-gray-700">
+      Return Date:
+    </label>
+    <input
+      type="date"
+      id="returnDate"
+      className="mt-1 block w-full ring-2 py-2 pl-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+      value={returnDate}
+      onChange={(e) => setReturnDate(e.target.value)}
+      required
+    />
+  </div>
+
+  <button
+    type="submit"
+    className="w-full py-2 px-4 bg-blue-500 text-white font-bold rounded hover:bg-blue-600"
+  >
+    Confirm Borrow
+  </button>
+  <button
+    type="button"
+    className="w-full py-2 px-4 mt-2 bg-gray-500 text-white font-bold rounded hover:bg-gray-600"
+    onClick={() => setIsModalOpen(false)}
+  >
+    Cancel
+  </button>
+</form>
+
           </div>
         </div>
       )}

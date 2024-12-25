@@ -54,57 +54,70 @@ function BorrowedBooks() {
 
   return (
     <div className="overflow-x-auto max-w-7xl mx-auto my-24 shadow-lg py-10 px-2 rounded-xl">
-      <table className="table">
-        {/* head */}
-        <thead className='bg-blue-300 '>
-          <tr className=''>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Return Date</th>
-            <th></th>
+     <div className="overflow-x-auto">
+  <table className="table-auto w-full border-collapse">
+    {/* head */}
+    <thead className='bg-blue-300'>
+      <tr>
+        <th className="px-4 py-2 text-left">Name</th>
+        <th className="px-4 py-2 text-left">Address</th>
+        <th className="px-4 py-2 text-left">Borrow Date</th>
+        <th className="px-4 py-2 text-left">Return Date</th>
+        <th className="px-4 py-2 text-left"></th>
+      </tr>
+    </thead>
+    <tbody className='bg-gray-100 '>
+      {filteredBooks.length > 0 ? (
+        filteredBooks.map(books => (
+          <tr key={books._id} className="border-t">
+            <td className="px-4 py-2">
+              <div className="flex items-center gap-3">
+                <div className="avatar">
+                  <div className="w-8 h-8 rounded md:w-12 md:h-12">
+                    <img 
+                      src={books.image_url}
+                      alt="Avatar Tailwind CSS Component" />
+                  </div>
+                </div>
+                <div>
+                  <div className="md:font-bold text-sm md:text-lg">{books.book_name}</div>
+                  <div className="text-sm opacity-50">{books.category_items}</div>
+                </div>
+              </div>
+            </td>
+            <td className="px-4 py-2">
+              <h2 className='font-medium text-sm lg:text-base'>{books.name}</h2>
+              <br />
+              <span className="rounded bg-blue-200 p-1 text-xs">{books.email}</span>
+            </td>
+            <td className="px-4 py-2 text-green-600">
+              <p>{books.currentDate}</p>
+            </td>
+            <td className="px-4 py-2 text-red-600">
+              <p>{books.returnDate}</p>
+            </td>
+            <td className="px-4 py-2">
+              <button
+                onClick={() => handleReturn(books._id)}
+                className="btn bg-blue-600 text-white/80 py-1 px-3 rounded-md hover:bg-blue-700"
+              >
+                Return
+              </button>
+            </td>
           </tr>
-        </thead>
-        <tbody className='bg-gray-100'>
-          {
-            filteredBooks.length > 0 ? (
-              filteredBooks.map(books => (
-                <tr key={books._id}>
-                  <td>
-                    <div className="flex items-center gap-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
-                            src={books.image_url}
-                            alt="Avatar Tailwind CSS Component" />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-bold">{books.book_name}</div>
-                        <div className="text-sm opacity-50">{books.category_items}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <h2 className='font-medium'>{books.name}</h2>
-                    <br />
-                    <span className=" rounded bg-blue-200 p-1 text-xs">{books.email}</span>
-                  </td>
-                  <td><p className='text-green-600 '>{books.returnDate}</p></td>
-                  <th>
-                    <button onClick={() => handleReturn(books._id)} className="btn bg-blue-600 text-white/80">Return</button>
-                  </th>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="4" className="text-center text-gray-600 py-4">
-                  No borrowed books found for your account.
-                </td>
-              </tr>
-            )
-          }
-        </tbody>
-      </table>
+        ))
+      ) : (
+        <tr>
+          <td colSpan="5" className="text-center text-gray-600 py-4">
+            No borrowed books found for your account.
+          </td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>
+
+
     </div>
   );
 }
