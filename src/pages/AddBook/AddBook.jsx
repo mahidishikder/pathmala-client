@@ -24,7 +24,7 @@ function AddBook() {
       book_name,
       author_name,
       category_items,
-      quantity,
+      quantity: parseInt(quantity, 10),
       rating,
       image_url,
       short_description,
@@ -35,6 +35,8 @@ function AddBook() {
         userPhoto: user?.photoURL,
       },
     };
+    console.log(dataa)
+    
 
     try {
       const { data } = await axios.post(`http://localhost:5001/addBook`, dataa);
