@@ -40,7 +40,14 @@ function BookCard({ bookAll }) {
           ))}
         </div>
         <p>{category_items}</p>
-        <p>Quantity : {quantity}</p>
+        <p
+  className={`${
+    quantity === 0 ? 'text-red-500' : ' text-green-600'
+  } p-[1px] rounded`}
+>
+  Quantity: {quantity}
+</p>
+
         <Link to={`/book/${_id}`}><button className="py-2 px-4 bg-[#0075FF] rounded text-white/80">Update</button></Link>
 
        

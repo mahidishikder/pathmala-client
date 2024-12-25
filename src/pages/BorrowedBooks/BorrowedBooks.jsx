@@ -26,7 +26,7 @@ function BorrowedBooks() {
           <tr className=''>
             <th>Name</th>
             <th>Address</th>
-            <th>Date</th>
+            <th>Return Date</th>
             <th></th>
           </tr>
         </thead>

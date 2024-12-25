@@ -65,7 +65,13 @@ function CategoryCard() {
               ))}
             </div>
             <p>{book.category_items}</p>
-            <p>Quantity : {book.quantity}</p>
+            <p
+  className={`${
+    book.quantity === 0 ? 'text-red-500' : ' text-green-600'
+  } p-[1px] rounded`}
+>
+  Quantity: {book.quantity}
+</p>
             <Link to={`/bookDetails/${book._id}`}><button className="py-2 px-4 bg-[#0075FF] rounded text-white/80">Details</button></Link>
     
            

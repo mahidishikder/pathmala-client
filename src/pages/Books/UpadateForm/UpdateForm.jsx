@@ -1,7 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function UpdateForm() {
+  const navigate = useNavigate()
   const data = useLoaderData();
   const {
     _id,
@@ -23,12 +24,13 @@ function UpdateForm() {
       book_name: e.target.book_name.value,
       author_name: e.target.author_name.value,
       category_items: e.target.category_items.value,
-      quantity: e.target.quantity.value,
+      quantity: Number(e.target.quantity.value), // quantity কে number এ রূপান্তর
       rating: e.target.rating.value,
       image_url: e.target.image_url.value,
       short_description: e.target.short_description.value,
       book_content: e.target.book_content.value,
     };
+    
     console.log(updatedData)
 
     // Make the PUT request
@@ -49,6 +51,7 @@ function UpdateForm() {
           text: "Your data has been update successfull.",
           icon: "success"
         });
+        navigate('/books')
       }
     })
       
