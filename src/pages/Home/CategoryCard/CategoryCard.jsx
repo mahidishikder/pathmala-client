@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import ReactStars from "react-rating-stars-component";
 
 function CategoryCard() {
-  const { categoryName } = useParams(); // URL থেকে ক্যাটাগরি নাম বের করুন
+  const { categoryName } = useParams(); 
   const [filteredBooks, setFilteredBooks] = useState([]);
   console.log(filteredBooks)
 
@@ -54,15 +55,14 @@ function CategoryCard() {
     
             {/* Dynamic Rating Section */}
             <div className="flex items-center justify-center mt-2">
-              {[...Array(5)].map((_, i) => (
-                <span
-                  key={i}
-                  className={`text-xl ${i < Math.floor(book.rating) ? "text-yellow-500" : "text-gray-300"}`}
-                >
-                  ⭐
-                </span>
-                
-              ))}
+            <ReactStars
+                    count={5} 
+                    value={book.rating} 
+                    size={24} 
+                    isHalf={true} 
+                    edit={false} 
+                    activeColor="#ffd700" 
+                  />
             </div>
             <p>{book.category_items}</p>
             <p
