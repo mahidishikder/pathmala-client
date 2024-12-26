@@ -26,21 +26,6 @@ function CategoryCard() {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center mt-20 gap-8">
         {filteredBooks.map((book) => (
-          // <div
-          //   key={book.id}
-          //   className="border p-4 rounded shadow-lg hover:shadow-xl"
-          // >
-          //   <img
-          //     src={book.image_url
-          //     }
-          //     alt={book.name}
-          //     className="w-[200px] mx-auto  object-cover rounded mb-4"
-          //   />
-          //   <h2 className="text-xl font-semibold">{book.name}</h2>
-          //   <p className="text-gray-600">Author: {book.author}</p>
-          //   <p className="text-gray-600">Rating: {book.rating}</p>
-          //   <p className="text-gray-600">Quantity: {book.quantity}</p>
-          // </div>
           <div key={book.id} className="card shadow shadow-slate-300 w-[300px]">
           <figure className="px-10 pt-10">
             <img 

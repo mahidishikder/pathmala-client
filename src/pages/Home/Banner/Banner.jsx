@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 function Banner() {
   return (
     <div className="carousel w-full">
@@ -10,10 +12,22 @@ function Banner() {
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white/80">
-            <h1 className="text-4xl sm:text-5xl font-bold">Explore a World of Books at Our Library</h1>
-            <p className="mt-6 text-lg sm:text-xl">Welcome to our digital library, where knowledge, adventure, and imagination come alive. Browse through a wide collection of books across <br /> genres and discover new worlds, stories, and ideas.</p>
+            <motion.h1
+             initial={{ x: '-100%' }}  
+             animate={{ x: 0 }}        
+             transition={{ duration: 2 }}
+             className="text-4xl sm:text-5xl font-bold">Explore a World of Books at Our Library</motion.h1>
+            <motion.p
+            initial={{ x: '100%' }}  
+            animate={{ x: 0 }}       
+            transition={{ duration: 2 }}
+             className="mt-6 text-lg sm:text-xl">Welcome to our digital library, where knowledge, adventure, and imagination come alive. Browse through a wide collection of books across <br /> genres and discover new worlds, stories, and ideas.</motion.p>
             <div className="mt-8">
-              <a href="#slide2" className="bg-[#0075FF] py-3 px-14 rounded mx-2">Learn More</a>
+              <motion.a
+               initial={{ opacity: 0 }}  
+               animate={{ opacity: 1 }}  
+               transition={{ duration: 2 }}
+               href="#slide2" className="bg-[#0075FF] py-3 px-14 rounded mx-2">Book Borrow</motion.a>
             </div>
           </div>
         </div>

@@ -53,72 +53,65 @@ function BorrowedBooks() {
   const filteredBooks = borrowedBooks.filter(books => books.email === user.email);
 
   return (
-    <div className="overflow-x-auto max-w-7xl mx-auto my-24 shadow-lg py-10 px-2 rounded-xl">
-     <div className="overflow-x-auto">
-  <table className="table-auto w-full border-collapse">
-    {/* head */}
-    <thead className='bg-blue-300'>
-      <tr>
-        <th className="px-4 py-2 text-left">Name</th>
-        <th className="px-4 py-2 text-left">Address</th>
-        <th className="px-4 py-2 text-left">Borrow Date</th>
-        <th className="px-4 py-2 text-left">Return Date</th>
-        <th className="px-4 py-2 text-left"></th>
-      </tr>
-    </thead>
-    <tbody className='bg-gray-100 '>
-      {filteredBooks.length > 0 ? (
-        filteredBooks.map(books => (
-          <tr key={books._id} className="border-t">
-            <td className="px-4 py-2">
-              <div className="flex items-center gap-3">
-                <div className="avatar">
-                  <div className="w-8 h-8 rounded md:w-12 md:h-12">
-                    <img 
-                      src={books.image_url}
-                      alt="Avatar Tailwind CSS Component" />
-                  </div>
-                </div>
-                <div>
-                  <div className="md:font-bold text-sm md:text-lg">{books.book_name}</div>
-                  <div className="text-sm opacity-50">{books.category_items}</div>
-                </div>
-              </div>
-            </td>
-            <td className="px-4 py-2">
-              <h2 className='font-medium text-sm lg:text-base'>{books.name}</h2>
-              <br />
-              <span className="rounded bg-blue-200 p-1 text-xs">{books.email}</span>
-            </td>
-            <td className="px-4 py-2 text-green-600">
-              <p>{books.currentDate}</p>
-            </td>
-            <td className="px-4 py-2 text-red-600">
-              <p>{books.returnDate}</p>
-            </td>
-            <td className="px-4 py-2">
+    <div className="max-w-7xl mx-auto my-24 py-10 px-4">
+  {filteredBooks.length > 0 ? (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {filteredBooks.map((book) => (
+        <div
+          key={book._id}
+          className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out"
+        >
+          {/* Book Cover */}
+          <div className="relative w-full h-56 bg-gray-200">
+            <img
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out"
+              src={book.image_url}
+              alt={book.book_name}
+            />
+          </div>
+
+          {/* Book Details */}
+          <div className="p-6">
+            {/* Book Title and Category */}
+            <h2 className="text-2xl font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-200">
+              {book.book_name}
+            </h2>
+            <p className="text-sm text-gray-500 mt-1">{book.category_items}</p>
+
+            {/* Borrowed and Return Date */}
+            <div className="mt-4">
+              <p className="text-sm text-green-600">Borrowed: {book.currentDate}</p>
+              <p className="text-sm text-red-600">Return Date: {book.returnDate}</p>
+            </div>
+
+            {/* User Info */}
+            <div className="mt-3">
+              <h4 className='text-sm font-medium text-green-700'>Address :</h4>
+              <p className="text-sm font-medium text-gray-700">{book.name}</p>
+              <span className="text-xs text-blue-500">{book.email}</span>
+            </div>
+
+            {/* Return Button */}
+            <div className="mt-6 flex justify-between items-center">
               <button
-                onClick={() => handleReturn(books._id)}
-                className="btn bg-blue-600 text-white/80 py-1 px-3 rounded-md hover:bg-blue-700"
+                onClick={() => handleReturn(book._id)}
+                className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-700 transition-colors duration-300 ease-in-out"
               >
                 Return
               </button>
-            </td>
-          </tr>
-        ))
-      ) : (
-        <tr>
-          <td colSpan="5" className="text-center text-gray-600 py-4">
-            No borrowed books found for your account.
-          </td>
-        </tr>
-      )}
-    </tbody>
-  </table>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  ) : (
+    <div className="text-center text-gray-600 py-4">
+      No borrowed books found for your account.
+    </div>
+  )}
 </div>
 
 
-    </div>
   );
 }
 
