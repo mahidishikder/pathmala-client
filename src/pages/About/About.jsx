@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet";
+
 function About() {
   return (
     <div className="p-6 bg-gray-50 max-w-7xl mx-auto py-16 rounded-xl my-24">
+      <Helmet>
+        <title>About</title>
+      </Helmet>
       {/* Section Title */}
       <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-12">
         About Our Library Management System

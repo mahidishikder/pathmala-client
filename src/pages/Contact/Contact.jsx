@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet";
 
 function Contact() {
   return (
     <div className="bg-gray-50 py-12 max-w-7xl mx-auto  my-24 rounded">
+      <Helmet>
+        <title>Contact</title>
+      </Helmet>
       {/* Section Title */}
       <h2 className="text-5xl font-extrabold text-gray-800 text-center mb-12">
         Get in Touch

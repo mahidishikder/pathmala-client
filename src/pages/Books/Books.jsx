@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import BookCard from "./BookCard/BookCard";
+import { Helmet } from "react-helmet";
 
 function Books() {
   const data = useLoaderData(); // Load books data
@@ -17,6 +18,9 @@ function Books() {
 
   return (
     <div className="mt-10">
+      <Helmet>
+        <title>Books</title>
+      </Helmet>
       {/* Dropdown for View Toggle */}
       <div className="flex justify-between items-center p-4 max-w-7xl mx-auto">
         <button

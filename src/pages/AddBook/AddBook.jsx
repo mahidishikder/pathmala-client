@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../provider/AuthPorvider";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function AddBook() {
   const navigete = useNavigate()
@@ -62,6 +63,9 @@ function AddBook() {
 
   return (
     <div className="py-24">
+      <Helmet>
+        <title>Add Book</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto px-20 py-16 bg-gray-100 rounded-xl ">
         <h2 className="text-3xl font-bold text-center mb-8">Add Book</h2>
         <form onSubmit={handleSubmit}>

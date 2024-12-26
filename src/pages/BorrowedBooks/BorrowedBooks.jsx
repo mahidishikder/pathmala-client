@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../provider/AuthPorvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 function BorrowedBooks() {
   const handleReturn = (_id) => {
@@ -54,6 +55,9 @@ function BorrowedBooks() {
 
   return (
     <div className="max-w-7xl mx-auto my-24 py-10 px-4">
+      <Helmet>
+        <title>Borrowed Books</title>
+      </Helmet>
   {filteredBooks.length > 0 ? (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {filteredBooks.map((book) => (
