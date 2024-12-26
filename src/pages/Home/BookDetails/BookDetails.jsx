@@ -30,7 +30,7 @@ function BookDetails() {
   const handleBorrow = () => {
     if (currentQuantity <= 0) return;
 
-    fetch("http://localhost:5001/borrow", {
+    fetch("https://pathmala-server-site.vercel.app/borrow", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

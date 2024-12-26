@@ -34,7 +34,7 @@ function UpdateForm() {
     console.log(updatedData)
 
     // Make the PUT request
-    fetch(`http://localhost:5001/book/${_id}`, {
+    fetch(`https://pathmala-server-site.vercel.app/book/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

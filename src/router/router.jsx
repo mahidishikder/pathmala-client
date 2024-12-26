@@ -29,12 +29,12 @@ const router = createBrowserRouter([
       {
        path:'/books',
        element:<PrivateRoute><Books></Books></PrivateRoute>,
-       loader:() => fetch(`http://localhost:5001/books`)
+       loader:() => fetch(`https://pathmala-server-site.vercel.app/books`)
       },
       {
         path:'/book/:id',
         element:<PrivateRoute><UpdateForm></UpdateForm></PrivateRoute>,
-        loader:({params}) => fetch(`http://localhost:5001/book/${params.id}`)
+        loader:({params}) => fetch(`https://pathmala-server-site.vercel.app/book/${params.id}`)
       },
       {
         path:'/addBook',
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       {
         path:'/bookDetails/:id',
         element:<PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
-        loader:({params}) => fetch(`http://localhost:5001/book/${params.id}`)
+        loader:({params}) => fetch(`https://pathmala-server-site.vercel.app/book/${params.id}`)
       },
       {
         path:'borrowedBooks',

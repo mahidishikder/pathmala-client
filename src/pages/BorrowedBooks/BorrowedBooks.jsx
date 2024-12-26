@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 function BorrowedBooks() {
   const handleReturn = (_id) => {
-    fetch(`http://localhost:5001/borrows/${_id}`, {
+    fetch(`https://pathmala-server-site.vercel.app/borrows/${_id}`, {
         method: "DELETE",
     })
         .then(res => res.json())
@@ -42,7 +42,7 @@ function BorrowedBooks() {
 
   useEffect(() => {
     // ডেটা ফেচ করা
-    axios.get('http://localhost:5001/borrows')
+    axios.get('https://pathmala-server-site.vercel.app/borrows')
       .then(response => {
         setBorrowedBooks(response.data);  // response থেকে ডেটা নিয়ে state এ সেট করা
       })

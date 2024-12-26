@@ -8,7 +8,7 @@ function CategoryCard() {
   console.log(filteredBooks)
 
   useEffect(() => {
-    fetch("http://localhost:5001/books")
+    fetch("https://pathmala-server-site.vercel.app/books")
       .then((res) => res.json())
       .then((data) => {
         const filtered = data.filter((book) => book.category_items === categoryName);
