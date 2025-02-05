@@ -1,66 +1,74 @@
-# Pathmala
+# 📚 Book Borrowing System  
 
-**Pathmala** is an advanced web application designed to provide a seamless and interactive learning experience for users. It is packed with features that cater to both learners and educators, ensuring a holistic approach to online education.
+## 🌟 Project Overview  
 
-## 🌟 Features
+The **Book Borrowing System** is a web-based platform where customers can browse, borrow, and return books seamlessly. The system provides a **user-friendly interface**, **real-time book availability tracking**, and **secure borrowing & returning process** to ensure a smooth experience for users.  
 
-Pathmala stands out with its comprehensive and user-friendly features:
+🔗 **Live Project:** [Click Here](https://pathmala.web.app/)  
 
-### 1. **User Authentication**
-   - Secure registration and login functionality for users.
-   - Integration with third-party authentication providers (e.g., Google, Facebook).
+---
 
-### 2. **Course Catalog**
-   - Browse a wide variety of courses across multiple categories.
-   - Detailed course pages with descriptions, objectives, and prerequisites.
+## 📸 Project Screenshot  
 
-### 3. **Course Enrollment**
-   - Enroll in your desired courses with a single click.
-   - View and manage your enrolled courses in the dashboard.
+![Project Screenshot](https://i.ibb.co.com/zWQbkqrd/Screenshot-2025-02-05-192520.png)  
 
-### 4. **Interactive Learning Modules**
-   - Access interactive content such as videos, quizzes, and practical exercises.
-   - Step-by-step progression through well-structured modules.
+---
 
-### 5. **Progress Tracking**
-   - Track your learning progress in real-time.
-   - Visual indicators for completed and pending modules.
+## 🚀 Features  
 
-### 6. **Quizzes and Assessments**
-   - Take quizzes to test your understanding of course content.
-   - Automatic grading and detailed performance feedback.
+✅ **Browse Available Books**  
+✅ **Book Borrowing & Return System**  
+✅ **Real-time Book Availability Status**  
+✅ **Interactive & Smooth UI Animations**  
+✅ **User-Friendly Design**  
+✅ **Notifications & Alerts for Borrowing/Returning**  
+✅ **Mobile Responsive Design**  
 
-### 7. **Certification**
-   - Receive a shareable certificate upon successful completion of a course.
-   - Showcase your achievements on professional platforms like LinkedIn.
+---
 
-### 8. **Personalized User Profiles**
-   - Create and customize your profile with personal details and preferences.
-   - View your learning history and achievements.
+## 🛠 Technologies Used  
 
-### 9. **Notifications and Updates**
-   - Stay informed with real-time notifications about course updates and deadlines.
-   - Receive personalized reminders for your enrolled courses.
+### **Frontend**  
+- React.js  
+- React Router  
+- Framer Motion  
+- React Icons  
+- React Helmet  
+- Tailwind CSS  
+- DaisyUI  
 
-### 10. **Responsive Design**
-   - Optimized for mobile, tablet, and desktop devices.
-   - Enjoy a consistent experience across all screen sizes.
+### **Backend & APIs**  
+- Firebase  
+- Axios  
 
-## 🛠️ Technology Stack
+### **Other Utilities**  
+- Lottie React (Animations)  
+- React Toastify (Notifications)  
+- SweetAlert2 (Alerts & Popups)  
+- Swiper (Carousel & Sliders)  
+- Match Sorter & Sort-By (Filtering & Sorting)  
 
-Pathmala is built using modern technologies to ensure high performance and scalability:
+---
 
-- **Frontend**: React.js for building an interactive user interface.
-- **Backend**: Node.js with Express.js for server-side operations.
-- **Database**: MongoDB for efficient data management.
-- **Styling**: Tailwind CSS for clean and responsive design.
-- **Hosting**: Firebase for reliable and fast deployment.
-- **Version Control**: Git and GitHub for code management.
+## 📦 Dependencies  
 
-## 🚀 Getting Started
+```json
+"dependencies": {
+  "axios": "^1.7.9",
+  "firebase": "^11.1.0",
+  "framer-motion": "^11.15.0",
+  "localforage": "^1.10.0",
+  "lottie-react": "^2.4.0",
+  "match-sorter": "^8.0.0",
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "react-helmet": "^6.1.0",
+  "react-icons": "^5.4.0",
+  "react-rating-stars-component": "^2.2.0",
+  "react-router-dom": "^7.1.0",
+  "react-toastify": "^11.0.2",
+  "sort-by": "^1.2.0",
+  "sweetalert2": "^11.15.3",
+  "swiper": "^11.1.15"
+}
 
-Follow these steps to set up and run the project locally:
-
-### 1. Clone the Repository
-
-```bash
