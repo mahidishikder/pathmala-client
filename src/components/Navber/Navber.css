@@ -1,2 +1,17 @@
+/* Navber.css */
+.modal {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Initially, hide the modal to the right */
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  padding: 20px;
+  z-index: 20;
+  transition: right 0.3s ease-in-out; /* Slide-in transition */
+}
 
-
+.modal.open {
+  right: 0; /* When modal is open, move it to the right */
+}
