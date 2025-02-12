@@ -57,10 +57,11 @@ function Login() {
 
 
   return (
-    <div className="flex justify-center items-center my-40 max-w-7xl mx-auto">
-      <div className="w-full max-w-md bg-white shadow-lg shadow-slate-400 rounded-lg p-8">
+   <div className="dark:bg-slate-700">
+     <div className="flex justify-center items-center my-24 py-28  max-w-7xl mx-auto">
+      <div className="w-full max-w-md bg-gray-300 dark:bg-slate-700 ring-2 shadow-lg dark:shadow-gray-600 rounded-lg p-8">
         {/* Title */}
-        <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">Login</h1>
+        <h1 className="text-2xl font-bold text-gray-800 text-center mb-6 dark:text-white/90">Login</h1>
 
         {/* Form */}
         <form onSubmit={handleLogin} className="space-y-4">
@@ -107,7 +108,7 @@ function Login() {
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-[#0075FF] text-white rounded-lg shadow-md hover:bg-[#0151ac] transition"
+            className="w-full py-2 px-4 bg-red-500 text-white rounded-lg shadow-md  transition"
           >
             Login
           </button>
@@ -129,7 +130,7 @@ function Login() {
         </div>
 
         {/* Register Link */}
-        <p className="text-sm text-gray-600 text-center mt-4">
+        <p className="text-sm text-gray-600 dark:text-white/70 text-center mt-4">
           Don’t have an account?
           <Link to="/register" className="text-blue-500 hover:underline">
             register
@@ -137,6 +138,7 @@ function Login() {
         </p>
       </div>
     </div>
+   </div>
   );
 }
 

@@ -2,12 +2,13 @@ import { Helmet } from "react-helmet";
 
 function Contact() {
   return (
-    <div className="bg-gray-50 py-12 max-w-7xl mx-auto  my-24 rounded">
+   <div className="dark:bg-slate-700">
+     <div className="py-12 max-w-7xl mx-auto   my-24 rounded">
       <Helmet>
         <title>Contact</title>
       </Helmet>
       {/* Section Title */}
-      <h2 className="text-5xl font-extrabold text-gray-800 text-center mb-12">
+      <h2 className="text-5xl font-extrabold dark:text-white/90 text-gray-800 text-center mb-12">
         Get in Touch
       </h2>
 
@@ -15,8 +16,8 @@ function Contact() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 px-6">
         {/* Contact Information */}
         <div className="space-y-8">
-          <h3 className="text-3xl font-bold text-gray-700">Contact Information</h3>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <h3 className="text-3xl font-bold text-gray-700 dark:text-white/70">Contact Information</h3>
+          <p className="text-lg text-gray-600 dark:text-white/60 leading-relaxed">
             We're here to help and answer any questions you might have. Reach
             out to us through any of the following ways.
           </p>
@@ -42,7 +43,7 @@ function Contact() {
               <span className="bg-yellow-500 text-white p-3 rounded-full">
                 <i className="fas fa-map-marker-alt"></i>
               </span>
-              <span className="text-gray-700 font-medium">
+              <span className="text-gray-700 dark:text-white/70 font-medium">
                 Address: 123 Library Lane, Booktown
               </span>
             </div>
@@ -50,7 +51,7 @@ function Contact() {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white shadow-lg rounded-lg p-8">
+        <div className=" shadow-inner bg-slate-100 dark:bg-slate-300 rounded-lg p-8">
           <h3 className="text-3xl font-bold text-gray-700 mb-6">Send Us a Message</h3>
           <form className="space-y-6">
             <div>
@@ -60,7 +61,7 @@ function Contact() {
               <input
                 type="text"
                 id="name"
-                className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
+                className="w-full mt-2 p-3 border border-gray-600 text-white/90 bg-slate-700 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
                 placeholder="Enter your full name"
               />
             </div>
@@ -71,7 +72,7 @@ function Contact() {
               <input
                 type="email"
                 id="email"
-                className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
+                className="w-full mt-2 p-3 border text-white/90 bg-slate-700 border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
                 placeholder="Enter your email"
               />
             </div>
@@ -82,7 +83,7 @@ function Contact() {
               <textarea
                 id="message"
                 rows="5"
-                className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
+                className="w-full bg-slate-700 text-white/90 mt-2 p-3 border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
                 placeholder="Write your message here"
               ></textarea>
             </div>
@@ -112,6 +113,7 @@ function Contact() {
         </div>
       </div>
     </div>
+   </div>
   );
 }
 

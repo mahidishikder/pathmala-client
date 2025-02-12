@@ -29,14 +29,14 @@ function FeaturedBooks() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-[#EF2346] to-[#FF8A00] py-16">
-      <div className="max-w-screen-xl mx-auto text-center text-white">
-        <h2 className="text-2xl md:font-semibold md:text-4xl font-bold mb-8">Featured Borrowed Books</h2>
+    <div className="bg-[#EF2346] py-16 dark:bg-black">
+      <div className="max-w-screen-xl mx-auto text-center text-white dark:text-white/90">
+        <h2 className="text-2xl md:font-semibold md:text-4xl font-bold  mb-16">Featured Borrowed Books</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
           {books.map((book, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
             >
               <img
                 src={book.image}
@@ -44,9 +44,9 @@ function FeaturedBooks() {
                 className="w-full h-64 object-cover object-center"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{book.title}</h3>
-                <p className="text-sm text-gray-600 mb-4">{book.author}</p>
-                <p className="text-sm text-gray-700 mb-4">{book.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">{book.title}</h3>
+                <p className="text-sm text-gray-600 mb-4 dark:text-gray-300">{book.author}</p>
+                <p className="text-sm text-gray-700 mb-4 dark:text-gray-300">{book.description}</p>
                
                <Link to={`/comingSoon`}>
                <button className="w-full bg-[#EF2346] text-white py-2 rounded-md hover:bg-[#FF8A00] transition duration-300">

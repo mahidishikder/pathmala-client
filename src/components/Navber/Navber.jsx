@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { HiMenuAlt1, HiX } from "react-icons/hi";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthPorvider";
@@ -6,8 +6,24 @@ import { toast } from "react-toastify";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { FiPhoneCall } from "react-icons/fi";
 import { RiMenu3Fill } from "react-icons/ri";
+import { MdDarkMode } from "react-icons/md";
 
 function Navber() {
+  const [theme, setTheme] = useState('light');
+
+  // Effect to apply dark mode
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const handleThemeToggle = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, singOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -24,11 +40,10 @@ function Navber() {
     navigate("/login");
   };
 
-  const handleMenuToggle = () => setIsMenuOpen(!isMenuOpen); // Only toggle the menu on mobile
+  const handleMenuToggle = () => setIsMenuOpen(!isMenuOpen);
 
   const handleLinkClick = () => {
-    // Close the modal when a link is clicked
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Close menu on link click
   };
 
   const links = (
@@ -132,11 +147,12 @@ function Navber() {
       </div>
 
       {/* Navbar */}
-      <div className="bg-gray-200  ">
-        <div className="navbar max-w-screen-2xl mx-auto py-4">
+      <div className="bg-gray-200 dark:bg-black dark:text-white/90">
+        <div className="navbar max-w-screen-2xl mx-auto py-2">
           <div className="navbar-start">
-            <div className="flex items-center cursor-pointer">
-              <img src="https://i.ibb.co/7L39PBQ/Liceria.png" alt="Logo" />
+            <div className="flex items-center gap-2 cursor-pointer">
+              <img className="w-10" src="https://cdn-icons-png.freepik.com/256/3920/3920592.png?ga=GA1.1.1542041277.1723260843&semt=ais_hybrid" alt="Logo" />
+               <h2 className="text-3xl font-bold">Pathmala</h2>
             </div>
           </div>
 
@@ -160,24 +176,12 @@ function Navber() {
                 >
                   Logout
                 </button>
-                <div className="dropdown">
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    className="text-3xl sm:text-3xl lg:hidden"
-                    onClick={handleMenuToggle}
-                  >
-                    {isMenuOpen ? <HiX/> : <RiMenu3Fill />}
-                  </div>
+                <div>
+                  <MdDarkMode
+                    className="text-3xl dark:text-white cursor-pointer"
+                    onClick={handleThemeToggle}
+                  />
                 </div>
-              </div>
-            ) : (
-              <div className="flex items-center gap-4">
-                <Link to="/login">
-                  <a className="hover:ring-[#EF2346] text-white hover:bg-white bg-[#EF2346] hover:ring-1 py-2 px-4 rounded font-medium cursor-pointer hover:text-[#000000] duration-300">
-                    Login
-                  </a>
-                </Link>
                 <div className="dropdown">
                   <div
                     tabIndex={0}
@@ -188,6 +192,29 @@ function Navber() {
                     {isMenuOpen ? <HiX /> : <RiMenu3Fill />}
                   </div>
                 </div>
+               
+              </div>
+            ) : (
+              <div className="flex items-center gap-4">
+                <Link to="/login">
+                  <a className="hover:ring-[#EF2346] text-white hover:bg-white bg-[#EF2346] hover:ring-1 py-2 px-4 rounded font-medium cursor-pointer hover:text-[#000000] duration-300">
+                    Login
+                  </a>
+                </Link>
+                <div className="text-3xl dark:text-white">
+                  <MdDarkMode onClick={handleThemeToggle} />
+                </div>
+                <div className="dropdown">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="text-3xl sm:text-3xl lg:hidden"
+                    onClick={handleMenuToggle}
+                  >
+                    {isMenuOpen ? <HiX /> : <RiMenu3Fill />}
+                  </div>
+                </div>
+                
               </div>
             )}
           </div>

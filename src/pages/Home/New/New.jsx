@@ -28,8 +28,8 @@ function New() {
   ];
 
   return (
-    <div className="p-5 bg-gray-50 max-w-7xl mx-auto my-12 md:my-24">
-      <h2 className="md:text-4xl text-2xl font-bold pb-10 md:font-semibold text-gray-800 mb-5">
+    <div className="p-5 bg-gray-50 dark:bg-gray-700 rounded-lg  max-w-7xl mx-auto my-12 md:my-24">
+      <h2 className="md:text-4xl dark:text-white/90 text-2xl font-bold pb-10 md:font-semibold text-gray-800 mb-5">
         New Arrivals
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

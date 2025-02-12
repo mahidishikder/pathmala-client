@@ -14,10 +14,12 @@ function Category() {
       transition: { type: "spring", bounce: 0.4, duration: 0.8 },
     },
   };
+  
 
   return (
-    <div className="max-w-7xl mx-auto md:my-24 my-12 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-2xl sm:text-4xl font-bold md:font-semibold text-center text-gray-800">
+    <div className="bg-[#FAE7CE] py-2 dark:bg-slate-700">
+      <div className="max-w-7xl mx-auto md:my-20 my-12  px-4 sm:px-6 lg:px-8  ">
+      <h1 className="text-2xl sm:text-4xl font-bold dark:text-white/90 md:font-semibold text-center text-gray-800">
         Explore Our Book Categories
       </h1>
 
@@ -56,16 +58,16 @@ function Category() {
             variants={cardVariants}
           >
             <Link to={`/category_books/${category.name}`}>
-              <div className="cursor-pointer border bg-white p-4 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 w-full h-[400px] flex flex-col items-center">
+              <div className="cursor-pointer border  dark:bg-gray-700 shadow-slate-400 bg-gray-200  border-l-2 border-b-2 border-red-500 border-r-0  border-t-0 p-4 rounded-lg shadow-md  transition-all duration-300 w-full h-[400px] flex flex-col items-center">
                 <img
                   src={category.image}
                   alt={category.name}
-                  className="h-[200px] w-full object-contain rounded-md"
+                  className="h-[200px] rounded-lg w-full object-contain "
                 />
-                <h2 className="text-lg sm:text-xl md:text-2xl font-bold mt-4 text-center text-gray-800">
+                <h2 className="text-lg sm:text-xl md:text-2xl dark:text-white font-bold mt-4 text-center ">
                   {category.name}
                 </h2>
-                <p className="text-sm sm:text-base text-gray-600 mt-2 text-center">
+                <p className="text-sm sm:text-base dark:text-white  mt-2 text-center">
                   {category.description}
                 </p>
               </div>
@@ -73,6 +75,7 @@ function Category() {
           </motion.div>
         ))}
       </div>
+    </div>
     </div>
   );
 }
