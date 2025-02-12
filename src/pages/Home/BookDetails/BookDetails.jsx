@@ -67,8 +67,8 @@ function BookDetails() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6 my-24 rounded-lg bg-gray-100 shadow-xl">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="max-w-5xl mx-auto p-6  mb-24 my-48 rounded-lg bg-gray-100 shadow-xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
         {/* Book Image */}
         <img
           src={image_url}
@@ -110,7 +110,7 @@ function BookDetails() {
           <button
             className={`mt-6 px-6 py-3 font-bold rounded ${
               currentQuantity > 0
-                ? "bg-blue-500 text-white hover:bg-blue-600"
+                ? "bg-[#EF2346] text-white hover:bg-[#f01e41]"
                 : "bg-gray-400 text-gray-700 cursor-not-allowed"
             }`}
             disabled={currentQuantity <= 0}
@@ -180,7 +180,7 @@ function BookDetails() {
 
   <button
     type="submit"
-    className="w-full py-2 px-4 bg-blue-500 text-white font-bold rounded hover:bg-blue-600"
+    className="w-full py-2 px-4 bg-[#EF2346] text-white font-bold rounded hover:bg-[#f11c3f]"
   >
     Confirm Borrow
   </button>

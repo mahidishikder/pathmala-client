@@ -1,3 +1,4 @@
+import FeaturedBooks from "../../components/Feture/Feture";
 import Banner from "./Banner/Banner"
 import Best from "./Best/Best"
 import Category from "./Category/Category"
@@ -16,6 +17,7 @@ function Home() {
       <Category></Category>
       <New></New>
       <Best></Best>
+      <FeaturedBooks></FeaturedBooks>
     </div>
   )
 }

@@ -10,13 +10,23 @@ import { Pagination, Autoplay } from 'swiper/modules';
 
 function Banner() {
   return (
-    <div className="banner-container">
+    <div className="banner-container mt-[100px]"> {/* Adjust margin top according to navbar height */}
       <Swiper
         pagination={{ clickable: true }}
         modules={[Pagination, Autoplay]}
         autoplay={{ delay: 2000, disableOnInteraction: false }} // 2 sec delay
         speed={1500} // Smooth transition (1.5 sec)
         className="swiper"
+        breakpoints={{
+          640: {
+            slidesPerView: 1, // Show 1 slide on small screens
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 1, // Adjust as necessary for larger screens
+            spaceBetween: 20,
+          },
+        }}
       >
         <SwiperSlide>
           <img 
@@ -48,6 +58,3 @@ function Banner() {
 }
 
 export default Banner;
-
-
-

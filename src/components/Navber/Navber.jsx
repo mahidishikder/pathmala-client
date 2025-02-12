@@ -5,12 +5,12 @@ import { AuthContext } from "../../provider/AuthPorvider";
 import { toast } from "react-toastify";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { FiPhoneCall } from "react-icons/fi";
+import { RiMenu3Fill } from "react-icons/ri";
 
 function Navber() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to toggle modal
-  const navigate = useNavigate();
   const { user, singOutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const profile = user && user?.photoURL;
 
   const handleLogout = () => {
@@ -24,16 +24,21 @@ function Navber() {
     navigate("/login");
   };
 
-  const handleMenuToggle = () => setIsModalOpen(!isModalOpen); // Toggle modal state
+  const handleMenuToggle = () => setIsMenuOpen(!isMenuOpen); // Only toggle the menu on mobile
+
+  const handleLinkClick = () => {
+    // Close the modal when a link is clicked
+    setIsMenuOpen(false);
+  };
 
   const links = (
     <>
       <NavLink
         to="/"
+        onClick={handleLinkClick}
         className={({ isActive }) =>
           isActive ? "nav-link text-red-500" : "nav-link"
         }
-        onClick={handleMenuToggle} // Close the modal when a menu item is clicked
       >
         Home
       </NavLink>
@@ -41,28 +46,28 @@ function Navber() {
         <>
           <NavLink
             to="books"
+            onClick={handleLinkClick}
             className={({ isActive }) =>
               isActive ? "nav-link text-red-500" : "nav-link"
             }
-            onClick={handleMenuToggle}
           >
             Books
           </NavLink>
           <NavLink
             to="addBook"
+            onClick={handleLinkClick}
             className={({ isActive }) =>
               isActive ? "nav-link text-red-500" : "nav-link"
             }
-            onClick={handleMenuToggle}
           >
             Add Book
           </NavLink>
           <NavLink
             to="borrowedBooks"
+            onClick={handleLinkClick}
             className={({ isActive }) =>
               isActive ? "nav-link text-red-500" : "nav-link"
             }
-            onClick={handleMenuToggle}
           >
             Borrowed Books
           </NavLink>
@@ -70,19 +75,19 @@ function Navber() {
       )}
       <NavLink
         to="about"
+        onClick={handleLinkClick}
         className={({ isActive }) =>
           isActive ? "nav-link text-red-500" : "nav-link"
         }
-        onClick={handleMenuToggle}
       >
         About Us
       </NavLink>
       <NavLink
         to="contact"
+        onClick={handleLinkClick}
         className={({ isActive }) =>
           isActive ? "nav-link text-red-500" : "nav-link"
         }
-        onClick={handleMenuToggle}
       >
         Contact Us
       </NavLink>
@@ -90,9 +95,9 @@ function Navber() {
   );
 
   return (
-    <div>
+    <div className="fixed top-0 left-0 w-full z-30">
       {/* Top Section */}
-      <div className="bg-[#EF2346] text-white py-2 border-b border-white/20">
+      <div className="bg-[#EF2346] text-white py-1 border-b border-white/20">
         <div className="max-w-screen-2xl mx-auto flex flex-wrap justify-between items-center px-4 md:px-8">
           <h3 className="text-white/90 text-sm md:text-base font-semibold">
             Welcome to Pathmala.com!
@@ -127,7 +132,7 @@ function Navber() {
       </div>
 
       {/* Navbar */}
-      <div className="bg-gray-200">
+      <div className="bg-gray-200  ">
         <div className="navbar max-w-screen-2xl mx-auto py-4">
           <div className="navbar-start">
             <div className="flex items-center cursor-pointer">
@@ -155,6 +160,16 @@ function Navber() {
                 >
                   Logout
                 </button>
+                <div className="dropdown">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="text-3xl sm:text-3xl lg:hidden"
+                    onClick={handleMenuToggle}
+                  >
+                    {isMenuOpen ? <HiX/> : <RiMenu3Fill />}
+                  </div>
+                </div>
               </div>
             ) : (
               <div className="flex items-center gap-4">
@@ -170,7 +185,7 @@ function Navber() {
                     className="text-3xl sm:text-3xl lg:hidden"
                     onClick={handleMenuToggle}
                   >
-                    {isMenuOpen ? <HiX /> : <HiMenuAlt1 />}
+                    {isMenuOpen ? <HiX /> : <RiMenu3Fill />}
                   </div>
                 </div>
               </div>
@@ -181,9 +196,7 @@ function Navber() {
 
       {/* Modal for Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-[100%] bg-white shadow-lg p-4 z-20 transform transition-all duration-300 ease-in-out ${
-          isModalOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-[100%] bg-white shadow-lg p-4 z-20 transform transition-all duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex justify-end">
           <button onClick={handleMenuToggle} className="text-2xl">
@@ -193,7 +206,7 @@ function Navber() {
         <div>
           <img
             className="mb-10 mx-auto"
-            src="https://i.ibb.co.com/Mq5LpJ5/Liceria-1.png"
+            src="https://i.ibb.co/Mq5LpJ5/Liceria-1.png"
             alt=""
           />
         </div>

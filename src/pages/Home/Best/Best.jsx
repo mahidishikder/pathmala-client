@@ -1,63 +1,44 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 function Best() {
-  const bestSellingBooks = [
-    {
-      id: 1,
-      title: "Rich Dad Poor Dad",
-      author: "Robert T. Kiyosaki",
-   
-      coverImage: "https://img.freepik.com/free-vector/realistic-world-book-day_52683-35226.jpg?ga=GA1.1.1542041277.1723260843&semt=ais_hybrid",
-    },
-    {
-      id: 2,
-      title: "The Subtle Art of ",
-      author: "Mark Manson",
-     
-      coverImage: "https://img.freepik.com/free-vector/hand-drawn-world-book-day-illustration-with-stack-books_23-2148868267.jpg?ga=GA1.1.1542041277.1723260843&semt=ais_hybrid",
-    },
-    {
-      id: 2,
-      title: "The hello bei ",
-      author: "Mark Manson",
-    
-      coverImage: "https://img.freepik.com/free-vector/gradient-stack-books-illustration_23-2149327718.jpg?ga=GA1.1.1542041277.1723260843&semt=ais_hybrid",
-    },
-    {
-      id: 2,
-      title: "The hello bei ",
-      author: "Mark Manson",
-   
-      coverImage: "https://img.freepik.com/free-vector/open-realistic-book-background_23-2147605553.jpg?ga=GA1.1.1542041277.1723260843&semt=ais_hybrid",
-    },
-    
-  ];
+  const [books, setBooks] = useState([]);
+  console.log(books)
+
+  useEffect(() => {
+    fetch("https://pathmala-server-site.vercel.app/books")
+      .then((res) => res.json())
+      .then((data) => {
+        setBooks(data.slice(0, 4)); // প্রথম ৪টি বই দেখাবে
+      })
+      .catch((error) => console.error("Error fetching books:", error));
+  }, []);
 
   return (
-    <div className="p-6 bg-gray-100 max-w-7xl mx-auto my-24">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6 pb-10">
-        Best Selling Books
+    <div className="lg:py-20 py-10  bg-gradient-to-br from-[#ffecd2] to-[#fcb69f]  flex flex-col items-center">
+      <h2 className="md:text-4xl text-2xl font-bold md:font-semibold text-gray-900 mb-10   ">
+        Most Popular Borrowed Books
       </h2>
-      <div className="flex flex-wrap justify-center gap-8">
-        {bestSellingBooks.map((book) => (
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 lg:gap-20 gap-10 ">
+        {books.map((book) => (
           <div
-            key={book.id}
-            className="w-64 bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:shadow-2xl hover:-translate-y-2"
+            key={book._id}
+            className="bg-white/30 backdrop-blur-md border border-white/50 shadow-xl p-6 rounded-2xl transform transition-all hover:scale-105 hover:shadow-2xl"
           >
             <img
-              src={book.coverImage}
-              alt={book.title}
-              className="h-56 w-full object-cover"
+              src={book.image_url}
+              alt={book.book_name}
+              className="w-full h-60 object-cover rounded-lg"
             />
-            <div className="p-4">
-              <h3 className="text-xl font-semibold text-gray-700">
-                {book.title}
-              </h3>
-              <p className="text-gray-500 text-sm">by {book.author}</p>
-              <p className="mt-2 text-lg font-bold text-gray-800">
-                {book.price}
-              </p>
-              <button className="mt-4 w-full py-2 bg-green-500 text-white rounded hover:bg-green-600">
-                Buy Now
-              </button>
+            <div className="mt-4 text-center">
+              <h3 className="text-2xl font-bold text-gray-800">{book.book_name}</h3>
+              <p className="text-gray-600 mt-1">by {book.author_name}</p>
+              <Link to={`bookDetails/${book._id}`}>
+  <button className="mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-[#F24F6B] to-[#f7415f] text-white text-lg font-semibold transition-transform transform hover:scale-105 shadow-lg">
+    Borrow Book Details
+  </button>
+</Link>
+
             </div>
           </div>
         ))}
@@ -67,3 +48,4 @@ function Best() {
 }
 
 export default Best;
+
