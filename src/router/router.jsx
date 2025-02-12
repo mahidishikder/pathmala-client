@@ -13,6 +13,7 @@ import CategoryCard from "../pages/Home/CategoryCard/CategoryCard";
 import BookDetails from "../pages/Home/BookDetails/BookDetails";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
+import ComingSoon from "../components/ComingSoon/ComingSoon";
 
 
 
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
        path:'contact',
        element:<Contact></Contact>
+      },
+      {
+       path:'comingSoon',
+       element:<ComingSoon></ComingSoon>
       },
       {
         path:'/login',

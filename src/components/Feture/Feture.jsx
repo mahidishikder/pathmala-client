@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function FeaturedBooks() {
   const books = [
@@ -47,9 +48,11 @@ function FeaturedBooks() {
                 <p className="text-sm text-gray-600 mb-4">{book.author}</p>
                 <p className="text-sm text-gray-700 mb-4">{book.description}</p>
                
-                <button className="w-full bg-[#EF2346] text-white py-2 rounded-md hover:bg-[#FF8A00] transition duration-300">
+               <Link to={`/comingSoon`}>
+               <button className="w-full bg-[#EF2346] text-white py-2 rounded-md hover:bg-[#FF8A00] transition duration-300">
                 Coming Soon
                 </button>
+               </Link>
               </div>
             </div>
           ))}
