@@ -1,4 +1,5 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"; // Importing icons
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -25,16 +26,16 @@ function Footer() {
           </div>
         </nav>
         <nav>
-          <h6 className="footer-title">Company</h6>
-          <a href="/about" className="link link-hover">About Us</a>
-          <a href="/contact" className="link link-hover">Contact</a>
-        </nav>
+  <h6 className="footer-title">Company</h6>
+  <Link to="/about" className="link link-hover">About Us</Link>
+  <Link to="/contact" className="link link-hover">Contact</Link>
+</nav>
         <nav>
-          <h6 className="footer-title">Legal</h6>
-          <a href="/terms" className="link link-hover">Terms of Use</a>
-          <a href="/privacy" className="link link-hover">Privacy Policy</a>
-          <a href="/cookie" className="link link-hover">Cookie Policy</a>
-        </nav>
+  <h6 className="footer-title">Legal</h6>
+  <Link to="/terms" className="link link-hover">Terms of Use</Link>
+  <Link to="/privacy" className="link link-hover">Privacy Policy</Link>
+  <Link to="/cookie" className="link link-hover">Cookie Policy</Link>
+</nav>
       </footer>
       <div className="text-center py-4 text-neutral-content">
         <p>&copy; 2025 Borrow Library. All rights reserved.</p>
