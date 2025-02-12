@@ -51,7 +51,7 @@ function BookCard({ bookAll }) {
   Quantity: {quantity}
 </p>
 
-        <Link to={`/book/${_id}`}><button className="py-2 px-4 bg-[#0075FF] rounded text-white/80">Update</button></Link>
+        <Link to={`/book/${_id}`}><button className="py-2 px-4 bg-green-500 rounded text-white/80">Update</button></Link>
 
        
       </div>

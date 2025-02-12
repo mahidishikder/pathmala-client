@@ -54,7 +54,7 @@ function BorrowedBooks() {
   const filteredBooks = borrowedBooks.filter(books => books.email === user.email);
 
   return (
-    <div className="max-w-7xl mx-auto my-24 py-10 px-4">
+    <div className="max-w-7xl mx-auto my-32 py-10 px-4">
       <Helmet>
         <title>Borrowed Books</title>
       </Helmet>
@@ -99,7 +99,7 @@ function BorrowedBooks() {
             <div className="mt-6 flex justify-between items-center">
               <button
                 onClick={() => handleReturn(book._id)}
-                className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-700 transition-colors duration-300 ease-in-out"
+                className="bg-[#EF2D4E] text-white py-2 px-6 rounded-md hover:bg-[#f35872] transition-colors duration-300 ease-in-out"
               >
                 Return
               </button>

@@ -1,35 +1,46 @@
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"; // Importing icons
 
 function Footer() {
   return (
-  <div className="bg-neutral">
-     <div>
-     <footer className="footer  text-neutral-content p-10 max-w-7xl mx-auto justify-items-center">
-    <nav>
-      <h6 className="footer-title">Services</h6>
-      <a className="link link-hover">Branding</a>
-      <a className="link link-hover">Design</a>
-      <a className="link link-hover">Marketing</a>
-      <a className="link link-hover">Advertisement</a>
-    </nav>
-    <nav>
-      <h6 className="footer-title">Company</h6>
-      <a className="link link-hover">About us</a>
-      <a className="link link-hover">Contact</a>
-      <a className="link link-hover">Jobs</a>
-      <a className="link link-hover">Press kit</a>
-    </nav>
-    <nav>
-      <h6 className="footer-title">Legal</h6>
-      <a className="link link-hover">Terms of use</a>
-      <a className="link link-hover">Privacy policy</a>
-      <a className="link link-hover">Cookie policy</a>
-    </nav>
-  </footer>
-        
-     </div>
-      
-  </div>
-  )
+    <div className="bg-neutral">
+      <footer className="footer text-neutral-content p-10 max-w-7xl mx-auto justify-items-center">
+        <nav>
+          <h6 className="footer-title">Contact</h6>
+          <div className="flex items-center space-x-4">
+            <p className="text-lg">Call Us: <span className="font-bold">+880123456789</span></p>
+          </div>
+          <div className="flex items-center space-x-4 mt-4">
+            <a href="https://facebook.com" target="_blank" className="text-white text-2xl">
+              <FaFacebook />
+            </a>
+            <a href="https://twitter.com" target="_blank" className="text-white text-2xl">
+              <FaTwitter />
+            </a>
+            <a href="https://instagram.com" target="_blank" className="text-white text-2xl">
+              <FaInstagram />
+            </a>
+            <a href="https://linkedin.com" target="_blank" className="text-white text-2xl">
+              <FaLinkedin />
+            </a>
+          </div>
+        </nav>
+        <nav>
+          <h6 className="footer-title">Company</h6>
+          <a href="/about" className="link link-hover">About Us</a>
+          <a href="/contact" className="link link-hover">Contact</a>
+        </nav>
+        <nav>
+          <h6 className="footer-title">Legal</h6>
+          <a href="/terms" className="link link-hover">Terms of Use</a>
+          <a href="/privacy" className="link link-hover">Privacy Policy</a>
+          <a href="/cookie" className="link link-hover">Cookie Policy</a>
+        </nav>
+      </footer>
+      <div className="text-center py-4 text-neutral-content">
+        <p>&copy; 2025 Borrow Library. All rights reserved.</p>
+      </div>
+    </div>
+  );
 }
 
-export default Footer
+export default Footer;

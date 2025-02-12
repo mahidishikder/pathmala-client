@@ -27,7 +27,7 @@ function CategoryCard() {
   return (
     <div className="max-w-7xl mx-auto my-12 px-4">
       {/* 📌 ক্যাটাগরি সেকশন */}
-      <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">📚 Book Categories</h1>
+      <h1 className="text-4xl font-bold mb-8  text-center text-gray-800">📚 Book Categories</h1>
       <div className="flex flex-wrap justify-center gap-6 mb-12">
         {categories.map((category, index) => (
           <Link
@@ -42,12 +42,16 @@ function CategoryCard() {
       </div>
 
       {/* 📌 ফিল্টার করা বই দেখানো */}
-      <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">📖 Books in {categoryName}</h1>
+      <h1 className="lg:text-4xl text-2xl lg:font-semibold font-bold mb-8 lg:mb-14 text-center text-gray-800">📖 Books in {categoryName}</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
         {filteredBooks.map((book) => (
           <div key={book._id} className="w-[280px] bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition">
-            <figure className="px-6 pt-6">
-              <img src={book.image_url} alt={book.book_name} className="rounded-lg w-full h-[200px] object-cover" />
+            <figure className="w-full h-[320px]">
+              <img 
+                src={book.image_url} 
+                alt={book.book_name} 
+                className="w-full h-full object-cover"
+              />
             </figure>
             <div className="p-4 text-center">
               <h2 className="text-xl font-semibold text-gray-900">{book.book_name}</h2>

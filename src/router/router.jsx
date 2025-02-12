@@ -14,6 +14,9 @@ import BookDetails from "../pages/Home/BookDetails/BookDetails";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import ComingSoon from "../components/ComingSoon/ComingSoon";
+import PrivacyPolicy from "../components/Privacy/Pricacy";
+import CookiePolicy from "../components/Cokkie/Cokkie";
+import Terms from "../components/Terms/Terms";
 
 
 
@@ -69,6 +72,18 @@ const router = createBrowserRouter([
       {
         path:'/login',
         element:<Login></Login>
+      },
+      {
+        path:'/privacy',
+        element:<PrivacyPolicy></PrivacyPolicy>
+      },
+      {
+        path:'/cookie',
+        element:<CookiePolicy></CookiePolicy>
+      },
+      {
+        path:'/terms',
+        element:<Terms></Terms>
       },
       {
         path:'/register',

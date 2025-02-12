@@ -72,7 +72,7 @@ function AddBook() {
           <div className="my-4">
             <label className="font-medium">Book Name</label>
             <input
-              className="py-3 px-3 mt-3 w-full ring-2 ring-blue-300 bg-gray-100 rounded"
+              className="py-3 px-3 mt-3 w-full ring-2 ring-[#f5abb7] bg-gray-100 rounded"
               type="text"
               required
               name="book_name"
@@ -82,7 +82,7 @@ function AddBook() {
           <div className="my-4">
             <label className="font-medium">Author Name</label>
             <input
-              className="py-3 px-3 mt-3 w-full ring-2 ring-blue-300 bg-gray-100 rounded"
+              className="py-3 px-3 mt-3 w-full ring-2 ring-[#f5abb7] bg-gray-100 rounded"
               type="text"
               required
               name="author_name"
@@ -92,7 +92,7 @@ function AddBook() {
           <div className="my-10 font-medium">
             <select
               name="category_items"
-              className="w-full ring-2 ring-blue-300 py-4 rounded bg-gray-100"
+              className="w-full ring-2 ring-[#f5abb7] py-4 rounded bg-gray-100"
             >
               <option disabled selected>
                 Category
@@ -107,7 +107,7 @@ function AddBook() {
           <div className="my-4">
             <label className="font-medium">Quantity</label>
             <input
-              className="py-3 px-3 mt-3 w-full ring-2 ring-blue-300 bg-gray-100 rounded"
+              className="py-3 px-3 mt-3 w-full ring-2 ring-[#f5abb7] bg-gray-100 rounded"
               type="number"
               name="quantity"
               required
@@ -116,7 +116,7 @@ function AddBook() {
           <div className="my-4">
             <label className="font-medium">Rating</label>
             <input
-              className="py-3 px-3 mt-3 w-full ring-2 ring-blue-300 bg-gray-100 rounded"
+              className="py-3 px-3 mt-3 w-full ring-2 ring-[#f5abb7] bg-gray-100 rounded"
               type="number"
               min="1"
               max="5"
@@ -128,7 +128,7 @@ function AddBook() {
           <div className="my-4">
             <label className="font-medium">Image URL</label>
             <input
-              className="py-3 px-3 mt-3 w-full ring-2 ring-blue-300 bg-gray-100 rounded"
+              className="py-3 px-3 mt-3 w-full ring-2 ring-[#f5abb7] bg-gray-100 rounded"
               type="url"
               required
               name="image_url"
@@ -138,7 +138,7 @@ function AddBook() {
           <div className="my-4">
             <label className="font-medium">Short Description</label>
             <textarea
-              className="py-3 px-3 mt-3 w-full ring-2 ring-blue-300 bg-gray-100 rounded"
+              className="py-3 px-3 mt-3 w-full ring-2 ring-[#f5abb7] bg-gray-100 rounded"
               required
               name="short_description"
             />
@@ -147,7 +147,7 @@ function AddBook() {
           <div className="my-4">
             <label className="font-medium">Book Content</label>
             <textarea
-              className="py-3 px-3 mt-3 w-full ring-2 ring-blue-300 bg-gray-100 rounded"
+              className="py-3 px-3 mt-3 w-full ring-2 ring-[#f5abb7] bg-gray-100 rounded"
               required
               name="book_content"
             />
@@ -155,7 +155,7 @@ function AddBook() {
 
           <div className="flex justify-center">
             <button
-              className="bg-[#0075FF] mt-6 py-3 px-10 rounded text-white/80 font-medium"
+              className="bg-[#EF2346] mt-6 py-3 px-10 rounded text-white/80 font-medium"
               type="submit"
             >
               Add Book

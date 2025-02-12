@@ -17,7 +17,7 @@ function Books() {
   const filteredData = showAvailable ? data.filter((book) => book.quantity > 0) : data;
 
   return (
-    <div className="mt-10">
+    <div className="mt-32">
       <Helmet>
         <title>Books</title>
       </Helmet>
@@ -79,7 +79,7 @@ function Books() {
       <td className="border px-4 py-2">{bookAll.rating}</td>
       <td className="border px-4 py-2">
         <Link to={`/book/${bookAll._id}`}>
-          <button className="bg-blue-500 text-white px-3 py-1 rounded">
+          <button className="bg-green-500 text-white px-3 py-1 rounded">
             Update
           </button>
         </Link>
