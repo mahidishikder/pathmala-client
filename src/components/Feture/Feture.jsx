@@ -30,7 +30,7 @@ function FeaturedBooks() {
   return (
     <div className="bg-gradient-to-r from-[#EF2346] to-[#FF8A00] py-16">
       <div className="max-w-screen-xl mx-auto text-center text-white">
-        <h2 className="text-4xl font-bold mb-8">Featured Borrowed Books</h2>
+        <h2 className="text-2xl md:font-semibold md:text-4xl font-bold mb-8">Featured Borrowed Books</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
           {books.map((book, index) => (
             <div
@@ -46,12 +46,9 @@ function FeaturedBooks() {
                 <h3 className="text-xl font-semibold mb-2">{book.title}</h3>
                 <p className="text-sm text-gray-600 mb-4">{book.author}</p>
                 <p className="text-sm text-gray-700 mb-4">{book.description}</p>
-                <div className="flex items-center gap-2 mb-4">
-                  <FaStar className="text-yellow-500" />
-                  <span className="text-yellow-500">{book.rating}</span>
-                </div>
+               
                 <button className="w-full bg-[#EF2346] text-white py-2 rounded-md hover:bg-[#FF8A00] transition duration-300">
-                  Borrow Now
+                Coming Soon
                 </button>
               </div>
             </div>
