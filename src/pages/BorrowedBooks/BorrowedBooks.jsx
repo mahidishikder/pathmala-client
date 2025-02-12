@@ -54,7 +54,8 @@ function BorrowedBooks() {
   const filteredBooks = borrowedBooks.filter(books => books.email === user.email);
 
   return (
-    <div className="max-w-7xl mx-auto my-32 py-10 px-4">
+   <div className='bg-gray-100 dark:bg-slate-700'>
+     <div className="max-w-7xl mx-auto pt-44  pb-20 px-4">
       <Helmet>
         <title>Borrowed Books</title>
       </Helmet>
@@ -63,7 +64,7 @@ function BorrowedBooks() {
       {filteredBooks.map((book) => (
         <div
           key={book._id}
-          className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out"
+          className="bg-white rounded-lg dark:bg-slate-300 shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out"
         >
           {/* Book Cover */}
           <div className="relative w-full h-56 bg-gray-200">
@@ -114,6 +115,7 @@ function BorrowedBooks() {
     </div>
   )}
 </div>
+   </div>
 
 
   );

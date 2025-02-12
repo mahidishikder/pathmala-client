@@ -72,8 +72,9 @@ function Register() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen max-w-7xl mx-auto">
-      <div className="w-full max-w-md bg-white shadow-lg shadow-slate-400 rounded-lg p-8">
+   <div className="dark:bg-slate-700">
+     <div className="flex justify-center  items-center pb-24 pt-44 max-w-7xl mx-auto">
+      <div className="w-full max-w-md bg-white shadow-lg shadow-slate-400 dark:shadow dark:bg-slate-400 rounded-lg p-8">
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">
           Register
         </h1>
@@ -151,7 +152,7 @@ function Register() {
           {/* Register Button */}
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-[#0075FF] text-white rounded-lg shadow-md hover:bg-[#01499b] transition"
+            className="w-full py-2 px-4 bg-red-500 text-white rounded-lg shadow-md  transition"
           >
             Register
           </button>
@@ -172,7 +173,7 @@ function Register() {
         </div>
 
         {/* Login Link */}
-        <p className="text-sm text-gray-600 text-center mt-4">
+        <p className="text-sm text-gray-600 dark:text-white text-center mt-4">
           Already have an account?{" "}
           <Link to={"/login"}>
             <a className="text-[#0075FF] hover:underline">Login</a>
@@ -180,6 +181,7 @@ function Register() {
         </p>
       </div>
     </div>
+   </div>
   );
 }
 

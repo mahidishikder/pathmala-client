@@ -16,7 +16,7 @@ function BookCard({ bookAll }) {
   } = bookAll;
 
   return (
-    <div className="card shadow shadow-slate-300 w-[300px]">
+    <div className="card shadow dark:shadow-gray-500 dark:bg-slate-500 bg-gray-100 shadow-black/30 w-[300px]">
       <figure className="px-10 pt-10">
         <img 
           src={image_url}
@@ -25,8 +25,8 @@ function BookCard({ bookAll }) {
         />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{book_name}</h2>
-        <p>{author_name}</p>
+        <h2 className="card-title dark:text-white/90">{book_name}</h2>
+        <p  className="dark:text-white/70">{author_name}</p>
 
         {/* Dynamic Rating Section */}
         
@@ -42,10 +42,10 @@ function BookCard({ bookAll }) {
   />
 </div>
 
-        <p>{category_items}</p>
+        <p className="dark:text-white/90">{category_items}</p>
         <p
   className={`${
-    quantity === 0 ? 'text-red-500' : ' text-green-600'
+    quantity === 0 ? 'text-red-500' : ' text-green-600 dark:text-green-400'
   } p-[1px] rounded`}
 >
   Quantity: {quantity}

@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 function About() {
   return (
    <div className="dark:bg-slate-700 ">
-     <div className="max-w-7xl mx-auto px-6 py-12 mt-24  ">
+     <div className="max-w-7xl mx-auto px-6 py-16 mt-20  ">
       <Helmet>
         <title>About Us - Borrow Library</title>
       </Helmet>

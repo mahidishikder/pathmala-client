@@ -10,7 +10,7 @@ import { Pagination, Autoplay } from 'swiper/modules';
 
 function Banner() {
   return (
-    <div className="banner-container  mt-[97px]"> {/* Adjust margin top according to navbar height */}
+    <div className="banner-container  mt-[93px]"> {/* Adjust margin top according to navbar height */}
       <Swiper
         pagination={{ clickable: true }}
         modules={[Pagination, Autoplay]}

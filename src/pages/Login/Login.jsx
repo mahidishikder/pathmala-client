@@ -57,11 +57,11 @@ function Login() {
 
 
   return (
-   <div className="dark:bg-slate-700">
-     <div className="flex justify-center items-center my-24 py-28  max-w-7xl mx-auto">
-      <div className="w-full max-w-md bg-gray-300 dark:bg-slate-700 ring-2 shadow-lg dark:shadow-gray-600 rounded-lg p-8">
+   <div className="dark:bg-slate-700 bg-gray-100">
+     <div className="flex justify-center items-center  pb-28 pt-48  max-w-7xl mx-auto">
+      <div className="w-full max-w-md bg-gray-200 dark:bg-slate-400 ring-2 shadow-lg dark:shadow-gray-600 rounded-lg p-8">
         {/* Title */}
-        <h1 className="text-2xl font-bold text-gray-800 text-center mb-6 dark:text-white/90">Login</h1>
+        <h1 className="text-2xl font-bold text-gray-800 text-center mb-6 ">Login</h1>
 
         {/* Form */}
         <form onSubmit={handleLogin} className="space-y-4">
@@ -97,7 +97,7 @@ function Login() {
 
           {/* Forget Password Link */}
           <div className="text-right">
-            <a className="text-sm text-blue-500 hover:underline">Forget Password?</a>
+            <a className="text-sm text-blue-700 hover:underline">Forget Password?</a>
           </div>
 
           {/* Error Message */}
@@ -132,7 +132,7 @@ function Login() {
         {/* Register Link */}
         <p className="text-sm text-gray-600 dark:text-white/70 text-center mt-4">
           Don’t have an account?
-          <Link to="/register" className="text-blue-500 hover:underline">
+          <Link to="/register" className="text-blue-700 ml-2 hover:underline">
             register
           </Link>
         </p>

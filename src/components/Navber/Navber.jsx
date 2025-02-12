@@ -9,19 +9,21 @@ import { RiMenu3Fill } from "react-icons/ri";
 import { MdDarkMode } from "react-icons/md";
 
 function Navber() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   // Effect to apply dark mode
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
+    // Local storage এ theme save করা হচ্ছে
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const handleThemeToggle = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,13 +32,12 @@ function Navber() {
   const profile = user && user?.photoURL;
 
   const handleLogout = () => {
-    singOutUser()
-      .then(() => {
-        toast.success("Logout Successful", {
-          position: "top-right",
-          autoClose: 1000,
-        });
+    singOutUser().then(() => {
+      toast.success("Logout Successful", {
+        position: "top-right",
+        autoClose: 1000,
       });
+    });
     navigate("/login");
   };
 

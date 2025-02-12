@@ -3,12 +3,12 @@ import { Helmet } from "react-helmet";
 function Contact() {
   return (
    <div className="dark:bg-slate-700">
-     <div className="py-12 max-w-7xl mx-auto   my-24 rounded">
+     <div className="py-16 max-w-7xl mx-auto   mt-20 rounded">
       <Helmet>
         <title>Contact</title>
       </Helmet>
       {/* Section Title */}
-      <h2 className="text-5xl font-extrabold dark:text-white/90 text-gray-800 text-center mb-12">
+      <h2 className="md:text-4xl text-2xl font-bold  md:font-extrabold  dark:text-white/90 text-gray-800 text-center mb-12">
         Get in Touch
       </h2>
 

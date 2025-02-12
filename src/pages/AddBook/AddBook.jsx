@@ -62,14 +62,14 @@ function AddBook() {
   };
 
   return (
-    <div className="py-24">
+    <div className="py-24 mt-20 bg-gray-50 dark:bg-slate-700">
       <Helmet>
         <title>Add Book</title>
       </Helmet>
-      <div className="max-w-7xl mx-auto px-20 py-16 bg-gray-100 rounded-xl ">
+      <div className="max-w-7xl mx-auto px-20 py-16  bg-gray-200 dark:bg-slate-400 rounded-xl ">
         <h2 className="text-3xl font-bold text-center mb-8">Add Book</h2>
         <form onSubmit={handleSubmit}>
-          <div className="my-4">
+          <div className="">
             <label className="font-medium">Book Name</label>
             <input
               className="py-3 px-3 mt-3 w-full ring-2 ring-[#f5abb7] bg-gray-100 rounded"

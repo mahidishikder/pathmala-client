@@ -17,7 +17,7 @@ function Books() {
   const filteredData = showAvailable ? data.filter((book) => book.quantity > 0) : data;
 
   return (
-    <div className="mt-32">
+    <div className="mt-20 py-10 dark:bg-white/20">
       <Helmet>
         <title>Books</title>
       </Helmet>
@@ -52,8 +52,8 @@ function Books() {
           <table className="table-auto w-full border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-100">
-                <th className="border px-4 py-2">Book Name</th>
-                <th className="border px-4 py-2">Author</th>
+                <th className="border dark:text-black/70 px-4 py-2">Book Name</th>
+                <th className="border px-4 py-2 dark:text-black/70 ">Author</th>
                 <th className="border px-4 py-2">Category</th>
                 <th className="border px-4 py-2">Quantity</th>
                 <th className="border px-4 py-2">Rating</th>
@@ -64,11 +64,11 @@ function Books() {
   {filteredData.map((bookAll) => (
     <tr
       key={bookAll._id}
-      className="hover:bg-gray-300 transition-colors duration-300"
+      className="hover:bg-gray-300 dark:bg-slate-700 bg-gray-100 rounded-lg transition-colors duration-300"
     >
-      <td className="border px-4 py-2">{bookAll.book_name}</td>
-      <td className="border px-4 py-2">{bookAll.author_name}</td>
-      <td className="border px-4 py-2">{bookAll.category_items}</td>
+      <td className="border px-4 py-2 dark:text-white/90">{bookAll.book_name}</td>
+      <td className="border px-4 py-2 dark:text-white/70">{bookAll.author_name}</td>
+      <td className="border px-4 py-2 dark:text-white/70">{bookAll.category_items}</td>
       <td
         className={`border px-4 py-2 ${
           bookAll.quantity === 0 ? "text-red-500" : "text-green-500"
@@ -76,7 +76,7 @@ function Books() {
       >
         {bookAll.quantity}
       </td>
-      <td className="border px-4 py-2">{bookAll.rating}</td>
+      <td className="border px-4 py-2 dark:text-yellow-500">{bookAll.rating}</td>
       <td className="border px-4 py-2">
         <Link to={`/book/${bookAll._id}`}>
           <button className="bg-green-500 text-white px-3 py-1 rounded">

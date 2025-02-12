@@ -58,12 +58,12 @@ function UpdateForm() {
   };
 
   return (
-    <div className="py-24">
-      <div className="max-w-7xl mx-auto px-20 py-16 bg-gray-100 rounded-xl">
-        <h2 className="text-3xl font-bold text-center mb-8">Update The Book</h2>
+    <div className="py-24 dark:bg-white/20">
+      <div className="max-w-7xl mx-auto px-20 py-14 my-14 dark:bg-slate-600 bg-gray-100 rounded-xl">
+        <h2 className="text-3xl font-bold text-center dark:text-white/90 mb-8">Update The Book</h2>
         <form onSubmit={handleUpdate}>
           <div className="my-4">
-            <label className="font-medium">Book Name</label>
+            <label className="font-medium dark:text-white/70">Book Name</label>
             <input
               className="py-3 px-3 mt-3 w-full ring-2 ring-[#f0a2af] bg-gray-100 rounded"
               type="text"
@@ -74,7 +74,7 @@ function UpdateForm() {
           </div>
 
           <div className="my-4">
-            <label className="font-medium">Author Name</label>
+            <label className="font-medium dark:text-white/70">Author Name</label>
             <input
               className="py-3 px-3 mt-3 w-full ring-2 ring-[#f0a2af] bg-gray-100 rounded"
               type="text"
@@ -85,10 +85,10 @@ function UpdateForm() {
           </div>
 
           <div className="my-10 font-medium">
-            <label className="font-medium">Category</label>
+            <label className="font-medium dark:text-white/70">Category</label>
             <select
               name="category_items"
-              className="w-full ring-2 ring-[#f0a2af] py-4 rounded bg-gray-100"
+              className="w-full ring-2 ring-[#f0a2af]  py-4 rounded bg-gray-100"
               defaultValue={category_items}
             >
               <option value="Fiction">Fiction</option>
@@ -99,7 +99,7 @@ function UpdateForm() {
           </div>
 
           <div className="my-4">
-            <label className="font-medium">Quantity</label>
+            <label className="font-medium dark:text-white/70">Quantity</label>
             <input
               className="py-3 px-3 mt-3 w-full ring-2 ring-[#f0a2af] bg-gray-100 rounded"
               type="number"
@@ -110,7 +110,7 @@ function UpdateForm() {
           </div>
 
           <div className="my-4">
-            <label className="font-medium">Rating</label>
+            <label className="font-medium dark:text-white/70">Rating</label>
             <input
               className="py-3 px-3 mt-3 w-full ring-2 ring-[#f0a2af] bg-gray-100 rounded"
               type="number"
@@ -123,7 +123,7 @@ function UpdateForm() {
           </div>
 
           <div className="my-4">
-            <label className="font-medium">Image URL</label>
+            <label className="font-medium dark:text-white/70">Image URL</label>
             <input
               className="py-3 px-3 mt-3 w-full ring-2 ring-[#f0a2af] bg-gray-100 rounded"
               type="url"
@@ -134,7 +134,7 @@ function UpdateForm() {
           </div>
 
           <div className="my-4">
-            <label className="font-medium">Short Description</label>
+            <label className="font-medium dark:text-white/70">Short Description</label>
             <textarea
               className="py-3 px-3 mt-3 w-full ring-2 ring-[#f0a2af] bg-gray-100 rounded"
               required
@@ -144,7 +144,7 @@ function UpdateForm() {
           </div>
 
           <div className="my-4">
-            <label className="font-medium">Book Content</label>
+            <label className="font-medium dark:text-white/70">Book Content</label>
             <textarea
               className="py-3 px-3 mt-3 w-full ring-2 ring-[#f0a2af] bg-gray-100 rounded"
               required
