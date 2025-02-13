@@ -123,7 +123,7 @@ function Login() {
 
         {/* Google Login Button */}
         <div className="flex justify-center">
-          <button onClick={handleGoogle} className="bg-gray-200 rounded py-2 w-full flex justify-center items-center gap-2">
+          <button onClick={handleGoogle} className="bg-slate-300  rounded py-2 w-full flex justify-center items-center gap-2">
             <FcGoogle className="text-lg" />
             <p className="text-gray-700">Google</p>
           </button>

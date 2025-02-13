@@ -7,6 +7,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { FiPhoneCall } from "react-icons/fi";
 import { RiMenu3Fill } from "react-icons/ri";
 import { MdDarkMode } from "react-icons/md";
+import { CiLight } from "react-icons/ci";
 
 function Navber() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -24,6 +25,7 @@ function Navber() {
 
   const handleThemeToggle = () => {
     setTheme(theme === "dark" ? "light" : "dark");
+    
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -171,18 +173,16 @@ function Navber() {
                   src={profile}
                   alt="Profile"
                 />
+                  <div className="text-3xl dark:text-white cursor-pointer" onClick={handleThemeToggle}>
+  {theme === "dark" ? <CiLight /> : <MdDarkMode />}
+</div>
                 <button
                   onClick={handleLogout}
-                  className="rounded font-medium text-white/80 md:text-lg py-2 px-3 bg-red-500"
+                  className="rounded font-medium text-sm  sm:text-base text-white/90 md:text-lg py-2 px-2  sm:px-3 bg-red-500"
                 >
                   Logout
                 </button>
-                <div>
-                  <MdDarkMode
-                    className="text-3xl dark:text-white cursor-pointer"
-                    onClick={handleThemeToggle}
-                  />
-                </div>
+              
                 <div className="dropdown">
                   <div
                     tabIndex={0}
@@ -197,14 +197,15 @@ function Navber() {
               </div>
             ) : (
               <div className="flex items-center gap-4">
+                <div className="text-3xl dark:text-white cursor-pointer" onClick={handleThemeToggle}>
+  {theme === "dark" ? <CiLight /> : <MdDarkMode />}
+</div>
                 <Link to="/login">
                   <a className="hover:ring-[#EF2346] text-white hover:bg-white bg-[#EF2346] hover:ring-1 py-2 px-4 rounded font-medium cursor-pointer hover:text-[#000000] duration-300">
                     Login
                   </a>
                 </Link>
-                <div className="text-3xl dark:text-white">
-                  <MdDarkMode onClick={handleThemeToggle} />
-                </div>
+                
                 <div className="dropdown">
                   <div
                     tabIndex={0}

@@ -67,7 +67,8 @@ function BookDetails() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6  mb-24 my-48 rounded-lg bg-gray-100 shadow-xl">
+    <div className="py-20 dark:bg-slate-700 px-4">
+      <div className="max-w-5xl dark:bg-gray-500 mx-auto p-6   mt-20  rounded-lg bg-gray-100 shadow-xl">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
         {/* Book Image */}
         <img
@@ -78,23 +79,23 @@ function BookDetails() {
 
         {/* Book Details */}
         <div>
-          <h1 className="text-4xl font-extrabold text-blue-600 mb-4">
+          <h1 className="text-4xl font-extrabold text-blue-600 dark:text-white/90 mb-4">
             {book_name}
           </h1>
           <p className="text-lg font-semibold">
-            <span className="text-gray-700">Author:</span>{" "}
-            <span className="text-blue-500">{author_name}</span>
+            <span className="text-gray-700 dark:text-white/70">Author:</span>{" "}
+            <span className="text-blue-500 dark:text-white/70">{author_name}</span>
           </p>
-          <p className="text-lg font-semibold">
-            <span className="text-gray-700">Category:</span>{" "}
+          <p className="text-lg font-semibold dark:text-white/70">
+            <span className="text-gray-700 dark:text-white/70 ">Category:</span>{" "}
             <span className="text-green-500">{category_items}</span>
           </p>
           <p className="text-lg font-semibold">
-            <span className="text-gray-700">Rating:</span>{" "}
+            <span className="text-gray-700 dark:text-white/70">Rating:</span>{" "}
             <span className="text-yellow-500">{rating} ★</span>
           </p>
           <p className="text-lg font-semibold">
-            <span className="text-gray-700">Available Quantity:</span>{" "}
+            <span className="text-gray-700 dark:text-white/70">Available Quantity:</span>{" "}
             <span
               className={`${
                 currentQuantity > 0 ? "text-green-600" : "text-red-600"
@@ -103,8 +104,8 @@ function BookDetails() {
               {currentQuantity}
             </span>
           </p>
-          <p className="text-gray-800 mt-4 leading-7">{short_description}</p>
-          <p className="text-gray-600 mt-2 italic">{book_content}</p>
+          <p className="text-gray-800 mt-4 leading-7 dark:text-white/70">{short_description}</p>
+          <p className="text-gray-600 mt-2 italic dark:text-white/70">{book_content}</p>
 
           {/* Borrow Button */}
           <button
@@ -124,7 +125,7 @@ function BookDetails() {
       {/* Borrow Modal */}
       {isModalOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-8 rounded shadow-lg w-[90%] max-w-md">
+          <div className="bg-white dark:bg-gray-200 p-8 rounded shadow-lg w-[90%] max-w-md">
             <h2 className="text-2xl font-semibold mb-4">Borrow This Book</h2>
             <form
   onSubmit={(e) => {
@@ -196,6 +197,7 @@ function BookDetails() {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }

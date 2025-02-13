@@ -34,7 +34,7 @@ function Best() {
               <h3 className="text-2xl font-bold dark:text-white/90 text-gray-800">{book.book_name}</h3>
               <p className="text-gray-600 mt-1 dark:text-white/70">by {book.author_name}</p>
               <Link to={`bookDetails/${book._id}`}>
-                <button className="mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-[#F24F6B] to-[#f7415f] text-white text-lg font-semibold transition-transform transform hover:scale-105 shadow-lg">
+                <button className="mt-4 px-6 py-2 rounded-lg bg-[#EF2346]  text-white text-lg font-semibold transition-transform transform hover:scale-105 shadow-lg">
                   Borrow Book Details
                 </button>
               </Link>

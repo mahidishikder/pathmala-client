@@ -25,9 +25,10 @@ function CategoryCard() {
   }, [categoryName]);
 
   return (
-    <div className="max-w-7xl mx-auto my-12 px-4">
+   <div className="dark:bg-slate-700">
+
+<div className="max-w-7xl mx-auto mt-20 py-12 px-4 ">
       {/* 📌 ক্যাটাগরি সেকশন */}
-      <h1 className="text-4xl font-bold mb-8  text-center text-gray-800">📚 Book Categories</h1>
       <div className="flex flex-wrap justify-center gap-6 mb-12">
         {categories.map((category, index) => (
           <Link
@@ -42,7 +43,7 @@ function CategoryCard() {
       </div>
 
       {/* 📌 ফিল্টার করা বই দেখানো */}
-      <h1 className="lg:text-4xl text-2xl lg:font-semibold font-bold mb-8 lg:mb-14 text-center text-gray-800">📖 Books in {categoryName}</h1>
+      <h1 className="lg:text-4xl text-2xl lg:font-semibold font-bold mb-8 lg:mb-14 text-center text-gray-800  dark:text-white/90">📖 Books in {categoryName}</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
         {filteredBooks.map((book) => (
           <div key={book._id} className="w-[280px] bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition">
@@ -71,7 +72,7 @@ function CategoryCard() {
               {/* 🔗 ডিটেইলস বাটন */}
               <Link to={`/bookDetails/${book._id}`}>
                 <button className="w-full bg-[#EF2346] text-white py-2 rounded-lg mt-3 
-                hover:bg-[#FF8A00] transition duration-300">
+                 transition duration-300">
                   📜 View Details
                 </button>
               </Link>
@@ -80,6 +81,7 @@ function CategoryCard() {
         ))}
       </div>
     </div>
+   </div>
   );
 }
 
