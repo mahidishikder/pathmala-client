@@ -16,7 +16,7 @@ function Contact() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 px-6">
         {/* Contact Information */}
         <div className="space-y-8">
-          <h3 className="text-3xl font-bold text-gray-700 dark:text-white/70">Contact Information</h3>
+          <h3 className="text-3xl font-bold text-gray-700 dark:text-white/70"><span className="text-[#EF2346]">Contact</span> Information</h3>
           <p className="text-lg text-gray-600 dark:text-white/60 leading-relaxed">
             We're here to help and answer any questions you might have. Reach
             out to us through any of the following ways.
