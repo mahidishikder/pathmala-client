@@ -4,7 +4,7 @@ import Navber from "../components/Navber/Navber"
 
 function Root() {
   return (
-    <div className="dark:bg-black ">
+    <div className="dark:bg-black bg-gray-100">
 
       <div className="">
         <Navber></Navber>

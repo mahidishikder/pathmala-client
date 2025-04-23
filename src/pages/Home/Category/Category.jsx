@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 function Category() {
   // Animation Variants
   const cardVariants = {
-    offscreen: { opacity: 0, scale: 0.8 },
+    offscreen: { opacity: 0, x: -200 },  // Cards start from the left side
     onscreen: {
       opacity: 1,
-      scale: 1,
-      transition: { type: "spring", stiffness: 120, damping: 10 },
+      x: 0,
+      transition: { type: "spring", stiffness: 120, damping: 25 },
     },
   };
 
@@ -30,15 +30,15 @@ function Category() {
     },
     {
       name: "Self-Help & Motivation",
-      image: "https://simg.pothi.com/7LIkhmMU-urI1Zbxryqa3npUox_hWRGc1E0tJAhXEZA/rs:fit/w:371/h:477/el:1/g:sm/cb:rev-28/bG9jYWw6Ly8vaW1h/Z2VzL3Byb2R1Y3Rz/LzIwMjQvMTEvZWJv/b2sxMzQzMS9JbWFn/ZV8wLmpwZw.jpg",
+      image: "https://stpaulsmalayalam.com/books/97.jpg",
       description: "A Guide to Growth and Success",
     },
   ];
 
   return (
-    <div className="bg-[#FDF8EE] md:py-20 py-10  dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-6">
-        <h1 className="text-2xl sm:text-4xl font-bold    dark:text-white text-center text-gray-800">
+    <div className="md:py-20 py-10 dark:bg-gray-900">
+      <div className="max-w-screen-2xl mx-auto px-6">
+        <h1 className="text-2xl sm:text-4xl font-bold dark:text-white text-center text-gray-800">
           Explore Our Book Categories
         </h1>
 
@@ -52,7 +52,7 @@ function Category() {
               variants={cardVariants}
             >
               <Link to={`/category_books/${category.name}`}>
-                <div className="bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-shadow duration-300 border dark:border-gray-700 rounded-xl p-5 flex flex-col items-center text-center">
+                <div className="bg-white dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-shadow duration-300 border dark:border-gray-700 rounded-xl p-5 flex flex-col items-center text-center transform hover:scale-105">
                   <img
                     src={category.image}
                     alt={category.name}
@@ -61,9 +61,6 @@ function Category() {
                   <h2 className="text-lg sm:text-xl font-semibold dark:text-white mt-4">
                     {category.name}
                   </h2>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
-                    {category.description}
-                  </p>
                 </div>
               </Link>
             </motion.div>
