@@ -55,6 +55,11 @@ function Navber() {
       )}
       <NavLink to="about" onClick={handleLinkClick} className={({ isActive }) => isActive ? "nav-link text-red-500" : "nav-link"}>About Us</NavLink>
       <NavLink to="contact" onClick={handleLinkClick} className={({ isActive }) => isActive ? "nav-link text-red-500" : "nav-link"}>Contact Us</NavLink>
+  
+      {/* Always at the end */}
+      {user && (
+        <NavLink to="dashboard/home" onClick={handleLinkClick} className={({ isActive }) => isActive ? "nav-link text-red-500" : "nav-link"}>Dashboard</NavLink>
+      )}
     </>
   );
 
@@ -72,9 +77,9 @@ function Navber() {
               +880 1234 567890
             </span>
             <div className="sm:flex hidden gap-3">
-              <a href="#" className="hover:text-yellow-300 transition-transform duration-200 hover:scale-110"><FaFacebookF size={20} /></a>
-              <a href="#" className="hover:text-yellow-300 transition-transform duration-200 hover:scale-110"><FaTwitter size={20} /></a>
-              <a href="#" className="hover:text-yellow-300 transition-transform duration-200 hover:scale-110"><FaInstagram size={20} /></a>
+              <a href="#" className="hover:text-red-500 transition-transform duration-200 hover:scale-110"><FaFacebookF size={20} /></a>
+              <a href="#" className="hover:text-red-500 transition-transform duration-200 hover:scale-110"><FaTwitter size={20} /></a>
+              <a href="#" className="hover:text-red-500 transition-transform duration-200 hover:scale-110"><FaInstagram size={20} /></a>
             </div>
           </div>
         </div>
@@ -104,8 +109,8 @@ function Navber() {
                   {theme === "dark" ? <CiLight /> : <MdDarkMode />}
                 </div>
                 <button onClick={handleLogout} className="rounded font-medium text-sm sm:text-base text-white/90 md:text-lg py-2 px-2 sm:px-3 bg-red-500">Logout</button>
-                <div className="dropdown">
-                  <div tabIndex={0} role="button" className="text-3xl sm:text-3xl lg:hidden" onClick={handleMenuToggle}>
+                <div className="dropdown lg:hidden">
+                  <div tabIndex={0} role="button" className="text-3xl sm:text-3xl" onClick={handleMenuToggle}>
                     {isMenuOpen ? <HiX /> : <RiMenu3Fill />}
                   </div>
                 </div>
@@ -120,8 +125,8 @@ function Navber() {
                     Login
                   </a>
                 </Link>
-                <div className="dropdown">
-                  <div tabIndex={0} role="button" className="text-3xl sm:text-3xl lg:hidden" onClick={handleMenuToggle}>
+                <div className="dropdown lg:hidden">
+                  <div tabIndex={0} role="button" className="text-3xl sm:text-3xl" onClick={handleMenuToggle}>
                     {isMenuOpen ? <HiX /> : <RiMenu3Fill />}
                   </div>
                 </div>
@@ -131,7 +136,7 @@ function Navber() {
         </div>
       </div>
 
-      {/* Modal for Menu */}
+      {/* Modal for Mobile Menu */}
       <div className={`fixed top-0 right-0 h-full w-[100%] bg-white shadow-lg p-4 px-2 z-20 transform transition-all duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex justify-end">
           <button onClick={handleMenuToggle} className="text-2xl"><HiX /></button>
@@ -141,9 +146,9 @@ function Navber() {
         </div>
         <div className="flex flex-col items-center space-y-6 font-medium text-lg">{links}</div>
         <div className="flex gap-3 justify-center mt-10">
-          <a href="#" className="hover:text-yellow-300 transition-transform duration-200 hover:scale-110"><FaFacebookF size={20} /></a>
-          <a href="#" className="hover:text-yellow-300 transition-transform duration-200 hover:scale-110"><FaTwitter size={20} /></a>
-          <a href="#" className="hover:text-yellow-300 transition-transform duration-200 hover:scale-110"><FaInstagram size={20} /></a>
+          <a href="#" className="hover:text-red-500 transition-transform duration-200 hover:scale-110"><FaFacebookF size={20} /></a>
+          <a href="#" className="hover:text-red-500 transition-transform duration-200 hover:scale-110"><FaTwitter size={20} /></a>
+          <a href="#" className="hover:text-red-500 transition-transform duration-200 hover:scale-110"><FaInstagram size={20} /></a>
         </div>
       </div>
     </div>

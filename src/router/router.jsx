@@ -17,6 +17,9 @@ import ComingSoon from "../components/ComingSoon/ComingSoon";
 import PrivacyPolicy from "../components/Privacy/Pricacy";
 import CookiePolicy from "../components/Cokkie/Cokkie";
 import Terms from "../components/Terms/Terms";
+import Dashboard from "../root/Dashboard";
+import Profile from "../pages/Dashboard/Profile";
+import DashboardHome from "../pages/Dashboard/DashboardHome";
 
 
 
@@ -88,6 +91,20 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
+      }
+    ]
+  },
+  {
+    path:'dashboard',
+    element: <Dashboard></Dashboard>,
+    children:[
+      {
+        path:'home',
+        element:<DashboardHome></DashboardHome>
+      },
+      {
+        path:'profile',
+        element:<Profile></Profile>
       }
     ]
   }
