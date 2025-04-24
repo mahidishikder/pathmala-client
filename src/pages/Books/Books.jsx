@@ -23,12 +23,17 @@ function Books() {
       </Helmet>
       {/* Dropdown for View Toggle */}
       <div className="flex justify-between items-center p-4 max-w-7xl mx-auto">
-        <button
-          className="bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 duration-300"
-          onClick={() => setShowAvailable(!showAvailable)} // Toggle filter
-        >
-          {showAvailable ? "Show All Books" : "Show Available Books"}
-        </button>
+      <button
+  className="bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 duration-300"
+  onClick={() => setShowAvailable(!showAvailable)} // Toggle filter
+>
+  {showAvailable
+    ? `Show All Books (${data.length})`
+    : `Show Available Books (${data.filter(book => book.quantity > 0).length})`}
+</button>
+
+
+
 
         <select
           className="border px-3 py-2 rounded shadow font-medium  ring-green-500  ring-2 duration-300"
