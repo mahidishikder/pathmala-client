@@ -55,7 +55,7 @@ function Best() {
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mt-2">by {book.author_name}</p>
               <Link to={`bookDetails/${book._id}`}>
-                <button className="mt-6 px-6 py-3 bg-[#EF2346] hover:bg-[#d61d3b] text-white font-medium rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <button className="mt-6 px-6 py-2 ring-1 ring-[#EF2346] hover:bg-[#d61d3b] hover:text-white font-medium rounded-lg shadow-lg transition-transform transform hover:scale-105">
                   See More
                 </button>
               </Link>
