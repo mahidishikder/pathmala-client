@@ -15,8 +15,9 @@ function Home() {
 
       <Banner></Banner>
       <Category></Category>
-      <New></New>
       <Best></Best>
+      <New></New>
+
       <FeaturedBooks></FeaturedBooks>
     </div>
   )

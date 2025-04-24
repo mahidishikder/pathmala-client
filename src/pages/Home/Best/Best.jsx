@@ -1,45 +1,66 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function Best() {
   const [books, setBooks] = useState([]);
-  console.log(books)
 
   useEffect(() => {
     fetch("https://pathmala-server-site.vercel.app/books")
       .then((res) => res.json())
       .then((data) => {
-        setBooks(data.slice(0, 4)); // প্রথম ৪টি বই দেখাবে
+        setBooks(data.slice(0, 4)); // Show first 4 books
       })
       .catch((error) => console.error("Error fetching books:", error));
   }, []);
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        delay: i * 0.2,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
-    <div className="lg:py-20 py-10  bg-[#ffecd2] dark:bg-gray-800   flex flex-col items-center">
-      <h2 className="md:text-4xl dark:text-white/90 text-2xl font-bold md:font-semibold text-gray-900 mb-16">
+    <div className="pb-14 bg-gray-100 dark:bg-gray-900 flex flex-col items-center">
+      <h2 className="md:text-4xl text-2xl font-bold text-gray-800 dark:text-white mb-16 text-center">
         Most Popular Borrowed Books
       </h2>
-      <div className="grid md:grid-cols-2  lg:grid-cols-4 lg:gap-20 gap-10">
-        {books.map((book) => (
-          <div
+
+      <div className="max-w-screen-2xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10 px-6">
+        {books.map((book, index) => (
+          <motion.div
             key={book._id}
-            className="bg-white/30 backdrop-blur-md border border-white/50 shadow-xl p-6 rounded-2xl transform transition-all hover:scale-105 hover:shadow-2xl"
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariants}
+            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-2xl p-8 lg:p-10 rounded-xl transition-transform hover:scale-105"
           >
             <img
               src={book.image_url}
               alt={book.book_name}
-              className="w-full h-60 object-cover rounded-lg"
+              className="w-full h-60 object-cover rounded mb-6"
             />
-            <div className="mt-4 text-center">
-              <h3 className="text-2xl font-bold dark:text-white/90 text-gray-800">{book.book_name}</h3>
-              <p className="text-gray-600 mt-1 dark:text-white/70">by {book.author_name}</p>
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                {book.book_name}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mt-2">by {book.author_name}</p>
               <Link to={`bookDetails/${book._id}`}>
-                <button className="mt-4 px-6 py-2 rounded-lg bg-[#EF2346]  text-white text-lg font-semibold transition-transform transform hover:scale-105 shadow-lg">
-                  Borrow Book Details
+                <button className="mt-6 px-6 py-3 bg-[#EF2346] hover:bg-[#d61d3b] text-white font-medium rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                  See More
                 </button>
               </Link>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

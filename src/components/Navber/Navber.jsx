@@ -86,7 +86,7 @@ function Navber() {
           <div className="navbar-start">
             <div className="flex items-center gap-2 cursor-pointer">
               <img className="w-10" src="https://cdn-icons-png.freepik.com/256/3920/3920592.png?ga=GA1.1.1542041277.1723260843&semt=ais_hybrid" alt="Logo" />
-              <h2 className="text-3xl font-bold">Pathmala</h2>
+              <h2 className="md:text-3xl text-2xl font-bold">Pathmala</h2>
             </div>
           </div>
 
@@ -99,7 +99,7 @@ function Navber() {
           <div className="navbar-end">
             {user ? (
               <div className="flex gap-2 items-center">
-                <img className="cursor-pointer lg:w-10 lg:h-10 w-9 h-9 rounded-full" src={profile} alt="Profile" />
+                <img className="cursor-pointer lg:w-10 lg:h-10 w-8 h-8 rounded-full" src={profile} alt="Profile" />
                 <div className="text-3xl dark:text-white cursor-pointer" onClick={handleThemeToggle}>
                   {theme === "dark" ? <CiLight /> : <MdDarkMode />}
                 </div>

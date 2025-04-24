@@ -9,7 +9,7 @@ function Root() {
       <div className="">
         <Navber></Navber>
       </div>
-      <div className="px-2 md:px-0">
+      <div className="">
       <Outlet></Outlet>
 
       </div>

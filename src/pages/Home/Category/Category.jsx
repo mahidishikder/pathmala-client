@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FaBookOpen } from "react-icons/fa";
 
 function Category() {
-  // Animation Variants
   const cardVariants = {
-    offscreen: { opacity: 0, x: -200 },  // Cards start from the left side
-    onscreen: {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
       opacity: 1,
-      x: 0,
-      transition: { type: "spring", stiffness: 120, damping: 25 },
-    },
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: i * 0.2,
+        ease: "easeOut",
+      },
+    }),
   };
 
   const categories = [
@@ -46,21 +50,31 @@ function Category() {
           {categories.map((category, index) => (
             <motion.div
               key={index}
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.6 }}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
               variants={cardVariants}
             >
               <Link to={`/category_books/${category.name}`}>
-                <div className="bg-white dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-shadow duration-300 border dark:border-gray-700 rounded-xl p-5 flex flex-col items-center text-center transform hover:scale-105">
-                  <img
-                    src={category.image}
-                    alt={category.name}
-                    className="w-40 h-40 object-cover rounded-md border border-gray-200 dark:border-gray-600"
-                  />
+                <div className="group bg-white dark:bg-gray-800 hover:bg-gradient-to-r transition-all duration-300 text-gray-800 dark:text-white shadow-xl hover:shadow-2xl hover:shadow-indigo-300 dark:hover:shadow-indigo-800 border dark:border-gray-700 rounded-xl p-5 flex flex-col items-center text-center transform hover:scale-105">
+                  <FaBookOpen className="text-3xl mb-2 text-[#EF2346] transform transition-transform duration-300 group-hover:scale-125" />
+
+                  <div className="relative w-40 h-40 overflow-hidden rounded-md border border-gray-200 dark:border-gray-600">
+                    <img
+                      src={category.image}
+                      alt={category.name}
+                      className="object-cover w-full h-full transform transition-transform duration-300 hover:scale-110"
+                    />
+                  </div>
+
                   <h2 className="text-lg sm:text-xl font-semibold dark:text-white mt-4">
                     {category.name}
                   </h2>
+
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                    {category.description}
+                  </p>
                 </div>
               </Link>
             </motion.div>
