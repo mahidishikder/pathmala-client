@@ -90,13 +90,13 @@ function Navber() {
         <div className="navbar max-w-screen-2xl mx-auto py-2">
           <div className="navbar-start">
             <div className="flex items-center gap-2 cursor-pointer">
-              <img className="w-10" src="https://cdn-icons-png.freepik.com/256/3920/3920592.png?ga=GA1.1.1542041277.1723260843&semt=ais_hybrid" alt="Logo" />
-              <h2 className="md:text-3xl text-2xl font-bold">Pathmala</h2>
+              <img className="w-8" src="https://cdn-icons-png.freepik.com/256/3920/3920592.png?ga=GA1.1.1542041277.1723260843&semt=ais_hybrid" alt="Logo" />
+              <h2 className=" text-2xl font-bold">PATHMALA</h2>
             </div>
           </div>
 
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 space-x-10 font-medium text-lg">
+            <ul className="menu menu-horizontal px-1 space-x-6 text-md xl:text-lg font-medium">
               {links}
             </ul>
           </div>
@@ -108,7 +108,7 @@ function Navber() {
                 <div className="text-3xl dark:text-white cursor-pointer" onClick={handleThemeToggle}>
                   {theme === "dark" ? <CiLight /> : <MdDarkMode />}
                 </div>
-                <button onClick={handleLogout} className="rounded font-medium text-sm sm:text-base text-white/90 md:text-lg py-2 px-2 sm:px-3 bg-red-500">Logout</button>
+                <button onClick={handleLogout} className="rounded text-sm sm:text-base text-white/90  py-2 px-2 sm:px-3 bg-red-500">Logout</button>
                 <div className="dropdown lg:hidden">
                   <div tabIndex={0} role="button" className="text-3xl sm:text-3xl" onClick={handleMenuToggle}>
                     {isMenuOpen ? <HiX /> : <RiMenu3Fill />}

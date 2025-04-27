@@ -1,14 +1,10 @@
 import { Outlet, NavLink } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { Menu, Bell, MessageCircle, User, X, Home, Book, Settings, Info, Phone } from 'lucide-react';
+import { Menu, Bell, MessageCircle, User, X, Home, Book, Info, Phone } from 'lucide-react';
 import { AuthContext } from '../provider/AuthPorvider';
 
-// Dummy user for conditional menu (you can replace it with real auth logic)
-const users = true;
-// const { user, singOutUser } = useContext(AuthContext);
-
-
 function Dashboard() {
+  const { user } = useContext(AuthContext);  // Fetch the user from context
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleLinkClick = () => {
@@ -31,7 +27,7 @@ function Dashboard() {
           </button>
         </div>
 
-        {/* Sidebar Menu Links (Old section - Dashboard, Profile, Settings) */}
+        {/* Sidebar Menu Links */}
         <ul className="space-y-2">
           <li>
             <NavLink
@@ -61,7 +57,6 @@ function Dashboard() {
               <span>Profile</span>
             </NavLink>
           </li>
-         
         </ul>
 
         <div className="divider">Or</div>
@@ -82,7 +77,7 @@ function Dashboard() {
               <span>Home</span>
             </NavLink>
           </li>
-          {users && (
+          {user && (
             <>
               <li>
                 <NavLink
@@ -171,7 +166,7 @@ function Dashboard() {
 
             {/* Profile and Logo */}
             <img
-              src="https://via.placeholder.com/40"
+              src={user?.photoURL || "https://via.placeholder.com/40"}
               alt="Profile"
               className="rounded-full w-10 h-10"
             />
